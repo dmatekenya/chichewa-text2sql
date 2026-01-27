@@ -6,7 +6,7 @@ dependencies = [
     "anthropic>=0.69.0",
     "beautifulsoup4>=4.14.2",
     "chromadb>=1.1.0",
-    "datasets==3.6.0",
+    "datasets==4.5.0",
     "feedparser>=6.0.12",
     "google-genai>=1.41.0",
     "google-generativeai>=0.8.5",
