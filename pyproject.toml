@@ -29,7 +29,7 @@ dependencies = [
     "openai>=1.109.1",
     "pandas>=2.3.3",
     "plotly>=6.3.0",
-    "protobuf==3.20.2",
+    "protobuf==6.33.4",
     "psutil>=7.1.0",
     "pydub>=0.25.1",
     "python-dotenv>=1.1.1",
