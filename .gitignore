@@ -99,3 +99,10 @@ data/
 
 # Docs
 docs/
+
+# One-off HuggingFace upload scripts
+_hf_readme_upload.py
+push_dataset_to_hub.py
+
+# Virtual environment
+.venv/

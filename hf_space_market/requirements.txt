@@ -1,0 +1,8 @@
+# gradio is pre-installed by the HF Spaces base image (controlled by sdk_version in README)
+transformers>=4.44.0
+torch>=2.4.0
+accelerate>=0.34.0
+safetensors>=0.4.0
+spaces>=0.30.0
+bitsandbytes>=0.46.1
+pandas>=2.0.0
