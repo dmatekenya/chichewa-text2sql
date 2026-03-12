@@ -1,11 +1,21 @@
-cff-version: 1.2.0
-message: "Country borders or names do not necessarily reflect the World Bank Group’s official position. All maps are for illustrative purposes and do not imply the expression of any opinion on the part of the World Bank, concerning the legal status of any country or territory or concerning the delimitation of frontiers or boundaries."
-title: "World Bank Data Lab Project Template"
+cff-version: 1.0.0
+message: "If you use this dataset or findings, please cite this work."
+title: "Bridging the Language Gap in Text-to-SQL: Adapting LLMs for Chichewa in a Low-Resource Setting"
 authors:
-  - affiliation: World Bank
-    family-names: Stefanini Vicente
-    given-names: Gabriel
-    orcid: https://orcid.org/0000-0001-6530-3780
+  - family-names: Eze
+    given-names: John Emeka
+  - family-names: Matekenya
+    given-names: Dunstan
+  - family-names: Matthewe
+    given-names: Evance
 keywords:
-  - Open Science
-repository-code: https://github.com/worldbank/template/tree/main
+  - Text-to-SQL
+  - Low-Resource Languages
+  - Chichewa
+  - QLoRA Fine-Tuning
+  - Semantic Parsing
+  - Natural Language Processing
+repository-code: https://github.com/dmatekenya/chichewa-text2sql
+url: https://huggingface.co/datasets/johneze/chichewa-text2sql
+license: MIT
+date-released: "2026-03-12"
