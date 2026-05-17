@@ -1,0 +1,3602 @@
+[
+  {
+    "id": 1,
+    "question_en": "Which district produced the most Maize",
+    "question_ny": "Ndi boma liti komwe anakolola chimanga chambiri?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Maize';",
+    "sql_result": "[('Lilongwe', 444440.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 2,
+    "question_en": "Where was the most rice harvested?",
+    "question_ny": "Ndi boma liti komwe anakolola mpunga wambiri?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Rice';",
+    "sql_result": "[('Karonga', 46385.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 3,
+    "question_en": "Which are the top 5 maize producing districts?",
+    "question_ny": "Ndi maboma ati asanu omwe amakolola chimanga chambiri?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Maize' ORDER BY yield DESC LIMIT 5;",
+    "sql_result": "[('Lilongwe',), ('Kasungu',), ('Dowa',), ('Mzimba',), ('Mchinji',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 4,
+    "question_en": "Which crops did well in Rumphi in terms of yield? Give me the top 5",
+    "question_ny": "Ndi mbeu ziti zisanu zomwe anakolola mochuluka mu boma la Rumphi? Pelekani zisanu zoyambilila",
+    "sql_statement": "SELECT crop FROM production WHERE district = 'Rumphi' ORDER BY yield DESC LIMIT 5;",
+    "sql_result": "[('Cassava',), ('Maize',), ('Sweet potatoes',), ('Bananas',), ('Mangoes',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 5,
+    "question_en": "Which are the top 5 districts that harvested the most tobacco?",
+    "question_ny": "Ndi ma boma ati asanu omwe anakolola fodya kwambiri?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Tobacco' ORDER BY yield DESC LIMIT 5;",
+    "sql_result": "[('Lilongwe',), ('Dowa',), ('Nkhotakota',), ('Mchinji',), ('Rumphi',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 6,
+    "question_en": "Which are the top five districts by soya production?",
+    "question_ny": "Ndi ma boma ati asanu omwe anakolola soya kwambiri?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Soy beans' ORDER BY yield DESC LIMIT 5;",
+    "sql_result": "[('Lilongwe',), ('Mchinji',), ('Ntchisi',), ('Kasungu',), ('Mzimba',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 7,
+    "question_en": "Which district produced more bananas: Lilongwe or Kasungu?",
+    "question_ny": "Ndi boma liti lomwe linakolola nthochi zambiri: Lilongwe kapena Kasungu?",
+    "sql_statement": "SELECT district, SUM(yield) AS Sum_yield FROM production\nWHERE crop = 'Bananas'\n  AND district IN ('Lilongwe', 'Kasungu');",
+    "sql_result": "[('Kasungu', 225545.0)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 8,
+    "question_en": "Which district produced the most Macadamia in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linakolola makadamia ambiri mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, SUM(yield) AS Sum_yield FROM production WHERE crop = 'Macademia' AND season = '2023-2024';",
+    "sql_result": "[('Balaka', 6916.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 9,
+    "question_en": "What was the yield of apples in dowa?",
+    "question_ny": "Ndi ma apulosi ochuluka bwanji omwe anakololedwa ku Dowa mu nyengo yathayi?",
+    "sql_statement": "SELECT Yield FROM production WHERE District = 'Dowa' AND Crop = 'Apples';",
+    "sql_result": "[(0.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 10,
+    "question_en": "What was the total yield of Velvet beans in the 2023-2024 season?",
+    "question_ny": "Ndi nyemba za kalongonda zochuluka bwanji zomwe zinakololedwa mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Velvet beans' AND Season = '2023-2024';",
+    "sql_result": "[(18054.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 11,
+    "question_en": "What was the yield of wheat in Nkhotakota?",
+    "question_ny": "Ndi tiligu ochuluka bwanj adakololedwa ku Nkhotakota?",
+    "sql_statement": "SELECT Yield FROM production WHERE District = 'Nkhotakota' AND Crop = 'Wheat';",
+    "sql_result": "[(0.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 12,
+    "question_en": "What was the yield of maize in Ntcheu?",
+    "question_ny": "Ndi chimanga chochuluka bwanj chidakololedwa ku Ntcheu?",
+    "sql_statement": "SELECT Yield FROM production WHERE District = 'Ntcheu' AND Crop = 'Maize';",
+    "sql_result": "[(81248.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 13,
+    "question_en": "Which crop had the highest yield in Ntchisi during 2023-2024?",
+    "question_ny": "Ndi mbewu yanji idali ndi zokolola zochuluka ku Ntchisi mu  2023-2024?",
+    "sql_statement": "SELECT crop, MAX(yield) AS max_yield FROM production WHERE district = 'Ntchisi' AND season = '2023-2024';",
+    "sql_result": "[('Maize', 185021.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 14,
+    "question_en": "Which district produced the most Sweet potatoes in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lidakolola mbatata zochuluka mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, SUM(yield) AS Sum_yield FROM production WHERE crop = 'Sweet potatoes' AND season = '2023-2024';",
+    "sql_result": "[('Balaka', 6659584.02)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 15,
+    "question_en": "Which district produced the most Okra in the 2023-2024 season?",
+    "question_ny": "Ndi boma  liti lidakolola thelele lochuluka mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT District, MAX(Yield) AS Max_Yield FROM production WHERE Crop = 'Okra' AND Season = '2023-2024';",
+    "sql_result": "[('Mulanje', 757.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 16,
+    "question_en": "Which district produced the most Peaches in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lidakolola pichesi ochuluka mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT District, MAX(Yield) AS Max_Yield FROM production WHERE Crop = 'Peaches' AND Season = '2023-2024';",
+    "sql_result": "[('Thyolo', 4179.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 17,
+    "question_en": "Which crop had the highest yield in Nsanje during 2023-2024?",
+    "question_ny": "Ndi mbewu yanji idali ndi zokolola zochuluka ku Nsanje mu 2023-2024?",
+    "sql_statement": "SELECT Crop, MAX(Yield) AS Max_Yield FROM production WHERE District = 'Nsanje' AND Season = '2023-2024';",
+    "sql_result": "[('Sweet potatoes', 145733.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 18,
+    "question_en": "What was the yield of guava in chitipa?",
+    "question_ny": "Ndi gwafa ochuluka bwanji adakololedwa ku Chitipa?",
+    "sql_statement": "SELECT Yield FROM production WHERE District = 'Chitipa' AND Crop = 'Guava';",
+    "sql_result": "[(1337.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 19,
+    "question_en": "Which district produced the most Avocado pear?",
+    "question_ny": "Ndi chigawo chiti chidakolola mapeyala ochuluka kwambili?",
+    "sql_statement": "SELECT District, MAX(Yield) AS Max_Yield FROM production WHERE Crop = 'Avocado pear';",
+    "sql_result": "[('Thyolo', 26971.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 20,
+    "question_en": "Which crop had the highest yield in Thyolo during 2023-2024?",
+    "question_ny": "Ndi mbewu iti idali ndi zokolola zochuluka   ku Thyolo mu 2023-2024?",
+    "sql_statement": "SELECT Crop, MAX(Yield) AS Max_Yield FROM production WHERE District = 'Thyolo' AND Season = '2023-2024';",
+    "sql_result": "[('Sweet potatoes', 454039.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 21,
+    "question_en": "Which crop had the highest yield in Dedza during 2023-2024?",
+    "question_ny": "Ndi mbewu iti idali ndi zokolola zochuluka ku Dedza mu 2023-2024?",
+    "sql_statement": "SELECT Crop, MAX(Yield) AS Max_Yield FROM production WHERE District = 'Dedza' AND Season = '2023-2024';",
+    "sql_result": "[('Sweet potatoes', 418387.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 22,
+    "question_en": "Which crop had the highest yield in Nkhata Bay during 2023-2024?",
+    "question_ny": "Ndi mbewu iti idali ndi zokolola zochuluka ku Nkhata mu 2023-2024?",
+    "sql_statement": "SELECT Crop, MAX(Yield) AS Max_Yield FROM production WHERE District = 'Nkhata Bay' AND Season = '2023-2024';",
+    "sql_result": "[('Cassava', 805166.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 23,
+    "question_en": "What was the yield of ground beans in ntchisi?",
+    "question_ny": "Ndi mzama zochuluka bwanj zidakololedwa ku Ntchisi nyengo ya 2023-2024?",
+    "sql_statement": "SELECT Yield FROM production WHERE District = 'Ntchisi' AND Crop = 'Ground beans' AND Season = '2023-2024';",
+    "sql_result": "[(224.2,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 24,
+    "question_en": "What was the total yield of Paprika in the 2023-2024 season?",
+    "question_ny": "Kodi zokolola zonse pamodzi za Paprika  zidali zochuluka bwanji mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Paprika' AND Season = '2023-2024';",
+    "sql_result": "[(1047.86,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 25,
+    "question_en": "Which crop had the highest yield in Dowa during 2023-2024?",
+    "question_ny": "Ndi mbewu iti idali ndi zokolola zambili  ku Dowa mu 2023-2024?",
+    "sql_statement": "SELECT Crop, MAX(Yield) AS Max_Yield FROM production WHERE District = 'Dowa' AND Season = '2023-2024';",
+    "sql_result": "[('Sweet potatoes', 657130.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 26,
+    "question_en": "What was the total yield of Cassava in the 2023-2024 season?",
+    "question_ny": "Kodi  zokolola zonse pamodzi za chinangwa zidali zochuluka bwanji mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Cassava' AND Season = '2023-2024';",
+    "sql_result": "[(5404033.29,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 27,
+    "question_en": "What was total cabbage yield in the country?",
+    "question_ny": "Kodi zokolola zonse za kabichi m'dziko muno zinali zochuluka bwanji?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Cabbage';",
+    "sql_result": "[(214782.29,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 28,
+    "question_en": "Give me district with highest chillies yield?",
+    "question_ny": "Ndiuzeni boma lomwe linakolola tsabola wambiri",
+    "sql_statement": "SELECT District, MAX(Yield) AS Max_Yield FROM production\nWHERE Crop = 'Chillies';",
+    "sql_result": "[('Mulanje', 710.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 29,
+    "question_en": "Which district had the highest cotton yield?",
+    "question_ny": "Ndi boma liti lomwe linakolola thonje lambiri?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Cotton';",
+    "sql_result": "[('Nsanje', 4751.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 30,
+    "question_en": "What was the yield of cassava in mangochi?",
+    "question_ny": "Ndi chinangwa chochuluka bwanji chidakololedwa ku Mangochi mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT yield FROM production WHERE district = 'Mangochi' AND crop = 'Cassava' AND season = '2023-2024';",
+    "sql_result": "[(0.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 31,
+    "question_en": "Which crop recorded the highest yield in Kasungu in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inakololedwa mochuluka ku Kasungu mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop, MAX(yield) AS max_yield FROM production WHERE district = 'Kasungu' AND season = '2023-2024';",
+    "sql_result": "[('Cassava', 597293.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 32,
+    "question_en": "What was the total rice production in the country during the 2023-2024 season?",
+    "question_ny": "Kodi mpunga onse pamodzi udakololedwa ochulukwa bwanji mdziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Rice' AND season = '2023-2024';",
+    "sql_result": "[(138314.762,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 33,
+    "question_en": "Which district had the lowest maize yield in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti limene lonakolola chimanga chochepa mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Maize' AND season = '2023-2024';",
+    "sql_result": "[('Lilongwe', 444440.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 34,
+    "question_en": "What was the cassava yield in Salima",
+    "question_ny": "Ku Salima anakolola chinangwa chochuluka bwanji?",
+    "sql_statement": "SELECT yield FROM production WHERE district = 'Salima' AND crop = 'Cassava';",
+    "sql_result": "[(44252.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 35,
+    "question_en": "Which crop had the highest yield in Mzimba?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi zokolola zambiri ku Mzimba?",
+    "sql_statement": "SELECT crop, MAX(yield) AS max_yield FROM production WHERE district = 'Mzimba';",
+    "sql_result": "[('Cassava', 428043.29)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 36,
+    "question_en": "What was the yield of groundnuts in dedza?",
+    "question_ny": "Ndi mtedza wochuluka bwanji womwe unalimidwa ku Dedza mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT yield FROM production WHERE district = 'Dedza' AND crop = 'Groundnuts' AND season = '2023-2024';",
+    "sql_result": "[(30857.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 37,
+    "question_en": "Which district produced the most coffee",
+    "question_ny": "Ndi boma liti limene linakolola khofi wambiri?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Coffee';",
+    "sql_result": "[('Chitipa', 7923.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 38,
+    "question_en": "List the top three crops by yield in Karonga for the 2023-2024 season.",
+    "question_ny": "Tchulani mbewu zitatu zomwe zinali ndi zokolola zochuluka ku Karonga mu nyengo ya 2023-2024.",
+    "sql_statement": "SELECT crop FROM production WHERE district = 'Karonga' AND season = '2023-2024' ORDER BY yield DESC LIMIT 3;",
+    "sql_result": "[('Cassava',), ('Sweet potatoes',), ('Maize',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 39,
+    "question_en": "What was the total tobacco production across all districts in the 2023-2024 season?",
+    "question_ny": "Kodi zokolola zonse pamodzi za fodya m'maboma onse zinali zochuluka bwanji mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Tobacco' AND season = '2023-2024';",
+    "sql_result": "[(89616.8275,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 40,
+    "question_en": "Which district had higher soybean yield between Kasungu and Lilongwe in the 2023-2024 season?",
+    "question_ny": "Pakati pa Kasungu ndi Lilongwe, ndi boma liti lomwe linakolola soya wochuluka mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Soy beans' AND season = '2023-2024' AND district IN ('Kasungu','Lilongwe');",
+    "sql_result": "[('Lilongwe', 29087.0)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 41,
+    "question_en": "Which crop had the lowest yield in Mangochi?",
+    "question_ny": "Ndi mbewu iti yomwe anakolola zochepa kwambiri ku Mangochi?",
+    "sql_statement": "SELECT crop, MAX(yield) AS max_yield FROM production WHERE district = 'Mangochi';",
+    "sql_result": "[('Mangoes', 150330.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 42,
+    "question_en": "What was the average yield of rice across all districts in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mulingo wapakatikati otani omwe mpunga unakololedwa ma boma onse mu nthawi ya 2023-2024",
+    "sql_statement": "SELECT AVG(yield) FROM production WHERE crop = 'Rice' AND season = '2023-2024';",
+    "sql_result": "[(4939.81,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 43,
+    "question_en": "Which districts had maize yields above the national average in the 2023-2024 season?",
+    "question_ny": "Ndi ma boma ati anakhalapo ndi chimanga choposa mlingo wadziko lonse pa nthawi ya 2023-2024?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Maize' AND season = '2023-2024' AND yield > (SELECT AVG(yield) FROM production WHERE crop = 'Maize' AND season = '2023-2024');",
+    "sql_result": "[('Dedza',), ('Dowa',), ('Kasungu',), ('Lilongwe',), ('Mchinji',), ('Mzimba',), ('Ntchisi',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 44,
+    "question_en": "Which crop had the highest total production nationwide in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi zokolola zochuluka mu nthawi ya 2023-2024?",
+    "sql_statement": "SELECT crop, SUM(yield) AS Sum_yield FROM production WHERE season = '2023-2024';",
+    "sql_result": "[('Maize', 22780067.78)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 45,
+    "question_en": "Which district had the second lowest maize yield in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe lili la chiwili limene linali ndi zokolola za chimanga zochepa mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Maize' AND season = '2023-2024' ORDER BY yield ASC LIMIT 1 OFFSET 1;",
+    "sql_result": "[('Mwanza',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 46,
+    "question_en": "Which crops were produced in all districts during the 2023-2024 season?",
+    "question_ny": "Ndi mbewu ziti zomwe zidakololedwa m'maboma onse mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop FROM production WHERE season = '2023-2024'GROUP BY crop HAVING COUNT(DISTINCT district) = (SELECT COUNT(DISTINCT district) FROM production WHERE season ='2023-2024');",
+    "sql_result": "[('Apples',), ('Avocado pear',), ('Bananas',), ('Beans',), ('Cabbage',), ('Cassava',), ('Chick peas',), ('Chillies',), ('Coffee',), ('Cotton',), ('Cow peas',), ('Cucumber',), ('Dolichus beans',), ('Egg plants',), ('Field peas',), ('Flue cured',), ('Grams',), ('Grape fruits',), ('Ground beans',), ('Groundnuts',), ('Guava',), ('Lemons',), ('Macademia',), ('Maize',), ('Mangoes',), ('Millet',), ('Okra',), ('Onions',), ('Oranges',), ('Paprika',), ('Pawpaws',), ('Peaches',), ('Pigeon peas',), ('Pineapples',), ('Potatoes',), ('Rice',), ('Sesame',), ('Sorghum',), ('Soy beans',), ('Sunflower',), ('Sweet potatoes',), ('Tangerines',), ('Tobacco',), ('Tomatoes',), ('Velvet beans',), ('Wheat',)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 47,
+    "question_en": "How much Maize in total was harvested in the country?",
+    "question_ny": "Ndi chimanga chochuluka motani chomwe chidakololedwa mu dziko muno?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Maize';",
+    "sql_result": "[(3111592.95,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 48,
+    "question_en": "How much Cotton in total was harvested in the country?",
+    "question_ny": "Ndi thonje lochuluka bwanji lomwe lidakololedwa mdziko muno?",
+    "sql_statement": "SELECT SUM(Yield) as Total_Yield FROM production WHERE Crop = 'Cotton';",
+    "sql_result": "[(8920.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 49,
+    "question_en": "Which district had the highest total tomatoes yield across all seasons?",
+    "question_ny": "Ndi boma liti lomwe linakolola tomato wochuluka munyengo zonse?",
+    "sql_statement": "SELECT district, SUM(yield) AS Sum_yield FROM production WHERE crop = 'Tomatoes';",
+    "sql_result": "[('Balaka', 565840.67)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 50,
+    "question_en": "What was the total soybean production in the 2023-2024 season?",
+    "question_ny": "Kodi soya anakololedwa wochuluka bwanji mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Soy beans' AND season = '2023-2024';",
+    "sql_result": "[(179075.525,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 51,
+    "question_en": "Which district produced the least cassava in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linakolola chinangwa chochepa kwambiri mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Cassava' AND season = '2023-2024';",
+    "sql_result": "[('Nkhotakota', 886353.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 52,
+    "question_en": "What was the yield of rice in salima?",
+    "question_ny": "Kodi ndi mpunga wochuluka bwanji unakololedwa ku Salima mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT yield FROM production WHERE district = 'Salima' AND crop = 'Rice' AND season = '2023-2024';",
+    "sql_result": "[(9322.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 53,
+    "question_en": "Which crop had the lowest non-zero yield in Dedza in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi zokolola zochepetsetsa ku Dedza mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop, MAX(yield) AS max_yield FROM production WHERE district = 'Dedza' AND season = '2023-2024' AND yield > 0;",
+    "sql_result": "[('Sweet potatoes', 418387.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 54,
+    "question_en": "What is the average maize yield per district in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mlingo wapakatikati wanji wa chimanga womwe unakololedwa boma lililonse mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT AVG(yield) FROM production WHERE crop = 'Maize' AND season = '2023-2024';",
+    "sql_result": "[(111128.31975000001,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 55,
+    "question_en": "Which district produced more groundnuts in 2023-2024: Mchinji or Kasungu?",
+    "question_ny": "Ndi boma liti lomwe linalima mtedza wochuluka mu 2023-2024: Mchinji kapena Kasungu, ?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Groundnuts' AND season = '2023-2024' AND district IN ('Mchinji','Kasungu');",
+    "sql_result": "[('Mchinji', 51465.0)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 56,
+    "question_en": "Which districts produced tobacco in the 2023-2024 season?",
+    "question_ny": "Ndi maboma ati omwe analima fodya mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT DISTINCT district FROM production WHERE crop = 'Tobacco' AND season = '2023-2024';",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mzimba',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',), ('Mwanza',)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 57,
+    "question_en": "What was the total production of sweet potatoes in the country in 2023-2024?",
+    "question_ny": "Kodi ndi mbatata yochuluka bwanji yonse pamodzi idakololedwa m'dziko muno mu 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Sweet potatoes' AND season = '2023-2024';",
+    "sql_result": "[(6659584.02,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 58,
+    "question_en": "Which district had the highest number of different crops produced in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linalima mitundu yambili ya mbewu mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, COUNT(DISTINCT crop) FROM production WHERE season = '2023-2024' GROUP BY district ORDER BY COUNT(DISTINCT crop) DESC LIMIT 1;",
+    "sql_result": "[('Zomba', 46)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 59,
+    "question_en": "Which crop had the highest total production nationwide in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi zokolola zochuluka m'dziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop, SUM(yield) AS Sum_yield FROM production WHERE season = '2023-2024';",
+    "sql_result": "[('Maize', 22780067.78)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 60,
+    "question_en": "How many districts produced maize in the 2023-2024 season?",
+    "question_ny": "Kodi ndi maboma angati omwe analima chimanga mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT COUNT(DISTINCT district) FROM production WHERE crop = 'Maize' AND season = '2023-2024' AND yield > 0;",
+    "sql_result": "[(28,)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 61,
+    "question_en": "What is the average rice yield across all districts in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mlingo wapakatikati uti wa zokolola za mpunga m'maboma onse mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT AVG(yield) FROM production WHERE crop = 'Rice' AND season = '2023-2024';",
+    "sql_result": "[(4939.8129285714285,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 62,
+    "question_en": "What was the total millet production in the country in 2023-2024?",
+    "question_ny": "Kodi ndi mapira ochuluka bwanji onse pamodzi omwe anakololedwa m'dziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Millet' AND season = '2023-2024';",
+    "sql_result": "[(37928.501000000004,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 63,
+    "question_en": "Which crops were produced in Ntcheu during the 2023-2024 season?",
+    "question_ny": "Ndi mbewu ziti zomwe zinalimidwa ku Ntcheu mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT DISTINCT crop FROM production WHERE district = 'Ntcheu'AND season ='2023-2024' AND yield > 0;",
+    "sql_result": "[('Maize',), ('Beans',), ('Cow peas',), ('Soy beans',), ('Ground beans',), ('Rice',), ('Pigeon peas',), ('Field peas',), ('Wheat',), ('Millet',), ('Sorghum',), ('Groundnuts',), ('Cassava',), ('Sweet potatoes',), ('Tobacco',), ('Cotton',)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 64,
+    "question_en": "Which crop had the lowest total production nationwide in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi zokolola zochepa kwambiri m'dziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop, SUM(yield) AS Sum_yield FROM production WHERE season = '2023-2024' AND yield > 0;",
+    "sql_result": "[('Maize', 22780067.78)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 65,
+    "question_en": "How many different crops were produced nationally in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mitundu iti ya mbewu inalimidwa mdziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT COUNT(DISTINCT crop) FROM production WHERE season = '2023-2024';",
+    "sql_result": "[(46,)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 66,
+    "question_en": "Which crops had an average yield above 500 in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu ziti zomwe zinali ndi zokolola zapakatikati zoposa 500 mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop FROM production WHERE season = '2023-2024' GROUP BY crop HAVING AVG(yield) > 500;",
+    "sql_result": "[('Apples',), ('Avocado pear',), ('Bananas',), ('Beans',), ('Cabbage',), ('Cassava',), ('Coffee',), ('Cow peas',), ('Cucumber',), ('Egg plants',), ('Flue cured',), ('Groundnuts',), ('Guava',), ('Lemons',), ('Maize',), ('Mangoes',), ('Millet',), ('Onions',), ('Oranges',), ('Pawpaws',), ('Pigeon peas',), ('Pineapples',), ('Potatoes',), ('Rice',), ('Sesame',), ('Sorghum',), ('Soy beans',), ('Sunflower',), ('Sweet potatoes',), ('Tangerines',), ('Tobacco',), ('Tomatoes',), ('Velvet beans',)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 67,
+    "question_en": "Which districts produced both maize and rice in the 2023-2024 season?",
+    "question_ny": "Ndi maboma ati omwe analima chimanga ndi mpunga mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district FROM production WHERE season = '2023-2024'GROUP BY district HAVING SUM(CASE WHEN crop ='Maize'THEN 1 ELSE 0 END) > 0 AND SUM(CASE WHEN crop ='Rice' THEN 1 ELSE 0 END) > 0;",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 68,
+    "question_en": "Which crop showed the largest variation in yield across districts in the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe inaonetsa kusiyana kwakukulu pa zokolola m'maboma onse mu zaka za 2023-2024?",
+    "sql_statement": "SELECT crop, (MAX(yield) - MIN(yield)) FROM production WHERE season = '2023-2024' GROUP BY crop ORDER BY (MAX(yield) - MIN(yield)) DESC LIMIT 1;",
+    "sql_result": "[('Sweet potatoes', 953323.0)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 69,
+    "question_en": "Which district produced the most pigeon peas in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linakolola nandolo wochuluka mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Pigeon peas' AND season = '2023-2024';",
+    "sql_result": "[('Mulanje', 81569.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 70,
+    "question_en": "How many crops had a total national yield above 1000 in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mbewu zingati zomwe zinali ndi zokolola zochuluka zoposa 1000 mdziko muno mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT crop FROM production WHERE season = '2023-2024' GROUP BY crop HAVING SUM(yield) > 1000);",
+    "sql_result": "[(43,)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 71,
+    "question_en": "Which districts produced groundnuts in every recorded season?",
+    "question_ny": "Ndi maboma ati omwe analima mtedza m'nyengo zonse zolembedwa?",
+    "sql_statement": "SELECT district FROM production WHERE crop = 'Groundnuts' GROUP BY district HAVING COUNT(DISTINCT season) = (SELECT COUNT(DISTINCT season) FROM production WHERE crop = 'Groundnuts');",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "production"
+  },
+  {
+    "id": 72,
+    "question_en": "What is the difference between the highest and lowest rice yields in the 2023-2024 season?",
+    "question_ny": "Kodi zokolola za mpunga zochulukitsitsa ndi zochepetsetsa zasiyana mochuluka bwanji mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT MAX(yield) - MIN(yield) FROM production WHERE crop = 'Rice' AND season = '2023-2024';",
+    "sql_result": "[(46385.0,)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 73,
+    "question_en": "Which crop was produced in the greatest number of districts during the 2023-2024 season?",
+    "question_ny": "Ndi mbewu iti yomwe idalimidwa m'maboma ambiri mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop, COUNT(DISTINCT district) FROM production WHERE season = '2023-2024' GROUP BY crop ORDER BY COUNT(DISTINCT district) DESC LIMIT 1;",
+    "sql_result": "[('Wheat', 28)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 74,
+    "question_en": "How many districts recorded zero production for sesame in the 2023-2024 season?",
+    "question_ny": "Kodi ndi maboma angati omwe sadakolole konse chitowe mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT COUNT(*) FROM production WHERE crop = 'Sesame' AND season = '2023-2024' AND yield = 3;",
+    "sql_result": "[(1,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 75,
+    "question_en": "Which district had the most balanced crop yields in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linali ndi zokolola zochukula mofanana mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, (MAX(yield) - MIN(yield)) FROM production WHERE season = '2023-2024' GROUP BY district ORDER BY (MAX(yield) - MIN(yield)) ASC LIMIT 1;",
+    "sql_result": "[('Likoma', 2242.0)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 76,
+    "question_en": "What was the average yield of all crops combined in the 2023-2024 season?",
+    "question_ny": "Kodi ndi mlingo wapakatikati wotani  wa zokolola za mbewu zonse pamodzi mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT AVG(yield) FROM production WHERE season = '2023-2024';",
+    "sql_result": "[(17686.38802950311,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 77,
+    "question_en": "Which district produced the most sunflower in the 2023-2024 season?",
+    "question_ny": "Ndi boma liti lomwe linakolola mpendadzuwa wochuluka kwambiri mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT district, MAX(yield) AS max_yield FROM production WHERE crop = 'Sunflower' AND season = '2023-2024';",
+    "sql_result": "[('Phalombe', 4944.0)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 78,
+    "question_en": "What are the top 3 crops by yield in Zomba during the 2023-2024 season?",
+    "question_ny": "Ndi mbewu ziti zitatu zomwe zinakololedwa mochuluka m'boma la Zomba mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT crop FROM production WHERE district = 'Zomba' AND season = '2023-2024' ORDER BY yield DESC LIMIT 3;",
+    "sql_result": "[('Maize',), ('Mangoes',), ('Pigeon peas',)]",
+    "difficulty_level": "medium",
+    "table": "production"
+  },
+  {
+    "id": 79,
+    "question_en": "What was the total Grape fruits yield in 2023-2024?",
+    "question_ny": "Kodi ndi zipatso za mpesa zochuluka bwanji zonse pamodzi zinakololedwa mu nyengo ya 2023-2024?",
+    "sql_statement": "SELECT SUM(yield) FROM production WHERE crop = 'Grape fruits' AND season = '2023-2024';",
+    "sql_result": "[(239.0,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 80,
+    "question_en": "What is the average Chick peas yield?",
+    "question_ny": "Ndi mlingo wakatikati womwe anakolola tchana?",
+    "sql_statement": "SELECT AVG(yield) FROM production WHERE crop = 'Chick peas';",
+    "sql_result": "[(55.357142857142854,)]",
+    "difficulty_level": "easy",
+    "table": "production"
+  },
+  {
+    "id": 81,
+    "question_en": "How many districts are in the Central region?",
+    "question_ny": "Kodi chigawo chapakati chili ndi maboma angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT district_name) FROM population WHERE region_name = 'Central';",
+    "sql_result": "[(9,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 82,
+    "question_en": "How many males are in Machinga?",
+    "question_ny": "Amuna ndi angati mu boma la Machinga?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Machinga';",
+    "sql_result": "[(350742.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 83,
+    "question_en": "How many districts are in the Southern region?",
+    "question_ny": "Chigawo chakumwera chili ndi maboma angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT district_name) FROM population WHERE region_name = 'Southern';",
+    "sql_result": "[(13,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 84,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Phalombe",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali ku Phalombe",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Phalombe';",
+    "sql_result": "[('TA Mkhumba',), ('TA Jenala',), ('TA Chiwalo',), ('TA Nazombe',), ('TA Nkhulambe',), ('Phalombe Boma',), ('TA Kaduya',), ('Lake Chilwa',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 85,
+    "question_en": "How many females in Chikwawa?",
+    "question_ny": "Kodi boma la Chikwawa liri ndi akazi angati?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Chikwawa';",
+    "sql_result": "[(287794.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 86,
+    "question_en": "Which districts are in Central region?",
+    "question_ny": "Ndi maboma ati omwe ali m'chigawo chapakati?",
+    "sql_statement": "SELECT DISTINCT district_name FROM population WHERE region_name = 'Central';",
+    "sql_result": "[('Ntchisi',), ('Lilongwe',), ('Salima',), ('Dedza',), ('Kasungu',), ('Mchinji',), ('Nkhotakota',), ('Dowa',), ('Ntcheu',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 87,
+    "question_en": "What is the total population in Central region",
+    "question_ny": "Kodi chiwerengero cha anthu m'chigawo cha pakati ndichochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE region_name = 'Central';",
+    "sql_result": "[(21215760,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 88,
+    "question_en": "How many males are in Nkhotakota?",
+    "question_ny": "Ku Nkhotakota kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Nkhotakota';",
+    "sql_result": "[(192615.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 89,
+    "question_en": "Which districts are in Southern region?",
+    "question_ny": "Ndi maboma ati amene ali ku chigawo chakumwela?",
+    "sql_statement": "SELECT DISTINCT district_name FROM population WHERE region_name = 'Southern';",
+    "sql_result": "[('Blantyre',), ('Mangochi',), ('Zomba',), ('Thyolo',), ('Machinga',), ('Mulanje',), ('Chikwawa',), ('Mwanza',), ('Neno',), ('Nsanje',), ('Balaka',), ('Chiradzulu',), ('Phalombe',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 90,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Dowa",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali ku Dowa",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Dowa';",
+    "sql_result": "[('Dowa Boma',), ('TA Msakambewa',), ('TA Mponela',), ('Mponela Urban',), ('TA Mkukula',), ('TA Dzoole',), ('TA Chiwere',), ('TA Chakhaza',), ('TA Kayembe',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 91,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Mzimba",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali ku Mzimba",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Mzimba';",
+    "sql_result": "[('TA Mabulabo',), ('STA Levi Jere',), ('TA Mzukuzuku',), ('TA Mzikubola',), ('TA Mtwalo',), ('TA Mpherembe',), (\"TA M'Mbelwa\",), ('TA Khosolo Gwaza Jere',), ('TA Kampingo Sibande',), ('TA Jaravikuba Munthali',), ('TA Chindi',), ('Mzimba Boma',), ('Vwaza Marsh Reserve',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 92,
+    "question_en": "How many males are in Blantyre City?",
+    "question_ny": "Mu mzinda wa Blantyre muli amuna ochuluka bwanji?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Blantyre';",
+    "sql_result": "[(619636.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 93,
+    "question_en": "How many males are in Ntcheu?",
+    "question_ny": "Amuna ndi ochuluka bwanji ku Ntcheu?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Ntcheu';",
+    "sql_result": "[(319415.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 94,
+    "question_en": "Give the total population in Northern region.",
+    "question_ny": "Ntchulani kuchuluka kwa anthu okhala m'chigawo chaku mpoto",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE region_name = 'Northern';",
+    "sql_result": "[(6695406,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 95,
+    "question_en": "How many households are in Chiradzulu?",
+    "question_ny": "Ndi mabanja angati omwe ali boma la Chiradzulu?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[(90548.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 96,
+    "question_en": "What is the total number of households in Blantyre?",
+    "question_ny": "Ndi mabanja ochuluka bwanji omwe ali mu Blantyre?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Blantyre';",
+    "sql_result": "[(301630.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 97,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Chiradzulu",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali ku Chiradzulu",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[('TA Chitera',), ('TA Kadewere',), ('TA Mpama',), ('TA Nchema',), ('STA Sandareki',), ('Chiradzulu Boma',), ('STA Mpunga',), ('STA Onga',), ('TA Likoswe',), ('TA Nkalo',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 98,
+    "question_en": "Find the population of Traditional Authority (TA) Area 36.",
+    "question_ny": "Pezani chiwerengero cha anthu mudela la mfumu yaikulu  36",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 36';",
+    "sql_result": "[(289005,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 99,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Mangochi",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali boma la Mangochi",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Mangochi';",
+    "sql_result": "[('STA Ntonda',), ('TA Chimwala',), ('TA Mponda',), ('Lake Malombe',), ('TA Katuli',), ('TA Makanjila',), ('TA Mbwana Nyambi',), ('TA Namabvi',), ('Mangochi Town',), ('Monkey Bay Urban',), ('STA Chiunda',), ('STA Lulanga',), ('TA Chilipa',), ('TA Chowe',), ('TA Jalasi',), ('TA Nankumba',), ('Lake Malawi National Park',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 100,
+    "question_en": "What is the total population in Mangochi?",
+    "question_ny": "Chiwerengero cha anthu ku Mangochi ndi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Mangochi';",
+    "sql_result": "[(3348328,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 101,
+    "question_en": "How many households in Balaka District?",
+    "question_ny": "Ndi mabanja angati omwe ali boma la Balaka?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Balaka';",
+    "sql_result": "[(101574.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 102,
+    "question_en": "How many households in Chikwawa?",
+    "question_ny": "Ndi mabanja angati omwe ali ku Chikwawa?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Chikwawa';",
+    "sql_result": "[(127196.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 103,
+    "question_en": "Find the population of Traditional Authority (TA) Area 13?",
+    "question_ny": "Pezani chiwerengero cha anthu mudela la mfumu yaikulu  13",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 13';",
+    "sql_result": "[(3,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 104,
+    "question_en": "Which Traditional Authority (TA) in Chiradzulu has the largest total population?",
+    "question_ny": "Kodi ndi mfumu yaikulu iti yomwe ili ndi chiwerengero cha anthu chokwera boma la Chiradzulu?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(total_population AS INTEGER)) as total_pop FROM population WHERE district_name = 'Chiradzulu' GROUP BY ta_name ORDER BY total_pop DESC LIMIT 1;",
+    "sql_result": "[('TA Likoswe', 199343)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 105,
+    "question_en": "Find the total count of districts in Northern region",
+    "question_ny": "Welengani ma boma onse omwe ali chigawo chaku mpoto",
+    "sql_statement": "SELECT COUNT(DISTINCT district_name) FROM population WHERE region_name = 'Northern';",
+    "sql_result": "[(7,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 106,
+    "question_en": "How many females are in Balaka?",
+    "question_ny": "Ndi akazi angati ali ku Balaka?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Balaka';",
+    "sql_result": "[(229105.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 107,
+    "question_en": "What is the total population in Dowa?",
+    "question_ny": "Chiwerengero cha anthu m'boma la Dowa ndo chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Dowa';",
+    "sql_result": "[(2189187,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 108,
+    "question_en": "How many females are in Chitipa?",
+    "question_ny": "Ndi akazi angati ali ku Chitipa?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Chitipa';",
+    "sql_result": "[(120535.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 109,
+    "question_en": "Find the population of Traditional Authority (TA) Area 25.",
+    "question_ny": "Pezani chiwerengero cha anthu okhala m'dela la mfumu yaikulu 25",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 25';",
+    "sql_result": "[(289170,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 110,
+    "question_en": "What is the total population in Chitipa?",
+    "question_ny": "Chiwerengero cha anthu ku Chitipa ndi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Chitipa';",
+    "sql_result": "[(663660,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 111,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Chitipa",
+    "question_ny": "Lembani m'ndandanda wa mafumu akuluakulu osiyanasiyana omwe ali ku Chitipa",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Chitipa';",
+    "sql_result": "[('TA Mwenemisuku',), ('TA Nthalire',), ('STA Nthengatenga',), ('TA Mwenewenya',), ('STA Lwangwa',), ('STA Wavikaza',), ('Chitipa Boma',), ('TA Kameme',), ('Nyika Ntational Park-Chitipa',), ('STA Bulambya Songwe',), ('TA Mwabulambya',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 112,
+    "question_en": "How many females are in Thyolo?",
+    "question_ny": "Ndi akazi angati ali ku Thyolo?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Thyolo';",
+    "sql_result": "[(380697.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 113,
+    "question_en": "Which Traditional Authority (TA) in Blantyre has the largest total population?",
+    "question_ny": "Kodi ndi mfumu yaikulu iti yomwe ili ndi chiwerengero cha anthu chochuluka kwambli ku Blantyre?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(total_population AS INTEGER)) as total_pop FROM population WHERE district_name = 'Blantyre' GROUP BY ta_name ORDER BY total_pop DESC LIMIT 1;",
+    "sql_result": "[('TA Kapeni', 270899)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 114,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Blantyre city",
+    "question_ny": "Lembani m'ndandanda wamafumu akuluakulu osiyanasiyana mu mzinda wa Blantyre",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Blantyre';",
+    "sql_result": "[('TA Kapeni',), ('TA Lundu',), ('TA Chigaru',), ('TA Makata',), ('TA Machinjiri',), ('Chilomoni Ward',), ('Michiru Ward',), ('Nyambadwe Ward',), ('Mbayani Ward',), ('South Lunzu Ward',), ('Mapanga Ward',), ('Green Corner Ward',), ('Misesa Ward',), ('Ndirande Gamulani Ward',), ('Ndirande Makata Ward',), ('Soche West Ward',), ('Limbe Central Ward',), ('Nkolokoti Ward',), ('Mzedi Ward',), ('Namiyango Ward',), ('Ndirande Matope Ward',), ('Soche East Ward',), ('Bangwe Ward',), ('Bangwe Mthandizi Ward',), ('Blantyre City Centre Ward',), ('Blantyre South Ward',), ('Chigumula Ward',), ('Namalimwe Ward',), ('TA Kunthembwe',), ('TA Kuntaja',), ('TA Somba',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 115,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Balaka",
+    "question_ny": "Lembani m'ndandanda wamafumu akuluakulu osiyanasiyana ku Balaka",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Balaka';",
+    "sql_result": "[('TA Nkaya',), ('STA Phalula',), ('STA Toleza',), ('TA Amidu',), ('TA Chanthunya',), ('TA Kalembo',), ('Balaka Town',), ('TA Msamala',), ('TA Sawali',), ('STA Kachenga',), ('STA Matola',), ('Liwonde Town',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 116,
+    "question_en": "What is the population of Traditional Authority (TA) Area 31?",
+    "question_ny": "Kodi chiwerengero cha anthu m'dera la mfumu yayikulu  36 ndi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 31';",
+    "sql_result": "[(0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 117,
+    "question_en": "How many females are in Karonga?",
+    "question_ny": "Ndi akazi angati ali ku Karonga?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Karonga';",
+    "sql_result": "[(188831.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 118,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Likoma",
+    "question_ny": "Lembani m'ndandanda wamafumu akuluakulu osiyanasiyana ku Likoma",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Likoma';",
+    "sql_result": "[('TA Mkumpha',), ('Likoma Boma',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 119,
+    "question_en": "Which Traditional Authority (TA) in Chikwawa has the largest number of households?",
+    "question_ny": "Ndi mfumu yaikulu iti ku Chikwawa yomwe ili ndi mabanja ochuluka kwambiri?",
+    "sql_statement": "SELECT ta_name, SUM(number_households) as total_hh FROM population WHERE district_name = 'Chikwawa' GROUP BY ta_name ORDER BY total_hh DESC LIMIT 1;",
+    "sql_result": "[('TA Ngabu', 33888.0)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 120,
+    "question_en": "Find the total population in Southern region",
+    "question_ny": "Pezani kuchuluka kwa anthu onse okhala m'chigawo chakumwela",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE region_name = 'Southern';",
+    "sql_result": "[(21757131,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 121,
+    "question_en": "How many males are in Mchinji?",
+    "question_ny": "Ku Mchinji kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Mchinji';",
+    "sql_result": "[(296786.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 122,
+    "question_en": "Which Traditional Authority (TA) in Blantyre has the largest number of households?",
+    "question_ny": "Ndi mfumu yayikulu iti yomwe ili ndi mabanja ambiri ku Blantyre?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(number_households AS INTEGER)) as total_hh FROM population WHERE district_name = 'Blantyre' GROUP BY ta_name ORDER BY total_hh DESC LIMIT 1;",
+    "sql_result": "[('TA Kapeni', 25440)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 123,
+    "question_en": "How many males in Chikwawa district?",
+    "question_ny": "Ndi amuna angati omwe ali ku Chikwawa?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Chikwawa';",
+    "sql_result": "[(276890.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 124,
+    "question_en": "Which Traditional Authority (TA) in Chiradzulu has the largest number of households?",
+    "question_ny": "Ndi mfumu yayikulu iti ku Chiradzulu yomwe ili ndi mabanja ambiri?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(number_households AS INTEGER)) as total_hh FROM population WHERE district_name = 'Chiradzulu' GROUP BY ta_name ORDER BY total_hh DESC LIMIT 1;",
+    "sql_result": "[('TA Likoswe', 17392)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 125,
+    "question_en": "Which districts are in Northern region?",
+    "question_ny": "Ndi maboma ati omwe ali mchigawo chakumpoto?",
+    "sql_statement": "SELECT DISTINCT district_name FROM population WHERE region_name = 'Northern';",
+    "sql_result": "[('Mzimba',), ('Likoma',), ('Chitipa',), ('Karonga',), ('Nkhata Bay',), ('Rumphi',), ('Mzuzu',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 126,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Karonga",
+    "question_ny": "Pelekani ndandanda wa mafumu akuluakulu osiyanasiyana ku Karonga",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Karonga';",
+    "sql_result": "[('TA Wasambo',), (\"TA Mwirang'ombe\",), ('TA Mwakaboko',), ('TA Kyungu',), ('TA Kilupula',), ('Karonga Town',), ('Nyika National Park-Karonga',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 127,
+    "question_en": "Find the population of Traditional Authority (TA) Area 12?",
+    "question_ny": "Pezani chiwerengero cha anthu mdera la mfumu yayikulu 12?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 12';",
+    "sql_result": "[(2540,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 128,
+    "question_en": "How many males in Chiradzulu?",
+    "question_ny": "Ku Chiradzulu kuli amuna angati ?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[(169679.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 129,
+    "question_en": "How many distinct Traditional Authorities (TAs) are there in Phalombe?",
+    "question_ny": "Ku Phalombe kuli mafumu akuluakulu osiyanasiyana angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Phalombe';",
+    "sql_result": "[(8,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 130,
+    "question_en": "Which Traditional Authority (TA) in Chikwawa has the largest male population?",
+    "question_ny": "Ndi mfumu yayikulu iti ku Chikwawa yomwe ili ndi chiwerengero cha anthu chochuluka?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(population_male AS INTEGER)) as total_male FROM population WHERE district_name = 'Chikwawa' GROUP BY ta_name ORDER BY total_male DESC LIMIT 1;",
+    "sql_result": "[('TA Ngabu', 77120)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 131,
+    "question_en": "How many households in Karonga?",
+    "question_ny": "Ku Karonga kuli mabanja angati?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Karonga';",
+    "sql_result": "[(74953.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 132,
+    "question_en": "How many distinct Traditional Authorities (TAs) are there in Lilongwe?",
+    "question_ny": "Ku Lilongwe kuli mafumu akuluakulu osiyanasiyana angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Lilongwe';",
+    "sql_result": "[(76,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 133,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Dedza",
+    "question_ny": "Ku Dedza kuli mafumu akuluakulu osiyanasiyana angati?",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Dedza';",
+    "sql_result": "[('TA Tambala',), ('TA Kasumbu',), ('TA Kaphuka',), ('TA Kachere',), ('TA Chilikumwendo',), ('TA Chauma',), ('TA Kamenya Gwaza',), ('TA Kachindamoto',), ('Dedza Boma',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 134,
+    "question_en": "How many households are in Likoma?",
+    "question_ny": "Ku Likoma kuli mabanja angati?",
+    "sql_statement": "SELECT SUM(number_households) FROM population WHERE district_name = 'Likoma';",
+    "sql_result": "[(2892.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 135,
+    "question_en": "What is the population of Traditional Authority (TA) Area 35?",
+    "question_ny": "Chiwerengero cha anthu mdera la mfumu yayikulu 35 ndi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 35';",
+    "sql_result": "[(44546,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 136,
+    "question_en": "What is the total population in Likoma?",
+    "question_ny": "Ku Likoma kuli chiwerengero cha anthu chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Likoma';",
+    "sql_result": "[(14527,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 137,
+    "question_en": "How many Traditional Authorities (TAs) are in Mulanje?",
+    "question_ny": "Ku Mulanje kuli mafumu akuluakulu angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Mulanje';",
+    "sql_result": "[(10,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 138,
+    "question_en": "How many Traditional Authorities (TAs) are in Chikwawa?",
+    "question_ny": "Ku Mulanje kuli mafumu akuluakulu angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Chikwawa';",
+    "sql_result": "[(15,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 139,
+    "question_en": "List Traditional Authorities (TAs) in Chiradzulu with their admin_status",
+    "question_ny": "Pelekani ndandanda wa mafumu akuluakulu ku Chiradzulu komanso ndi mphamvu zawo",
+    "sql_statement": "SELECT DISTINCT ta_name, admin_status FROM population WHERE district_name = 'Chiradzulu' ORDER BY ta_name;",
+    "sql_result": "[('Chiradzulu Boma', 'Urban'), ('STA Mpunga', 'Rural'), ('STA Onga', 'Rural'), ('STA Sandareki', 'Rural'), ('TA Chitera', 'Rural'), ('TA Kadewere', 'Rural'), ('TA Likoswe', 'Rural'), ('TA Mpama', 'Rural'), ('TA Nchema', 'Rural'), ('TA Nkalo', 'Rural')]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 140,
+    "question_en": "How many females in Lilongwe City?",
+    "question_ny": "Mu mzinda wa Lilongwe muli akazi angati?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Lilongwe';",
+    "sql_result": "[(1334272.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 141,
+    "question_en": "What is the total population in Blantyre?",
+    "question_ny": "Kodi chiwerengero cha anthu ku Blantyre ndi chochuluka bwanji? ",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Blantyre';",
+    "sql_result": "[(3346297,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 142,
+    "question_en": "What is the total population in Chiradzulu District?",
+    "question_ny": "Kodi chiwerengero cha anthu m'boma la Chiradzulu ndi chochuluka bwanji? ",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[(1051936,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 143,
+    "question_en": "How many males are in Lilongwe?",
+    "question_ny": "Ku Lilongwe kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Lilongwe';",
+    "sql_result": "[(1292629,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 144,
+    "question_en": "How many males in Chitipa?",
+    "question_ny": "Ku Chitipa kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Chitipa';",
+    "sql_result": "[(114392,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 145,
+    "question_en": "How many males in Balaka District?",
+    "question_ny": "M'boma la Balaka muli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Balaka';",
+    "sql_result": "[(209274,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 146,
+    "question_en": "How many Traditional Authorities (TAs) in Chiradzulu?",
+    "question_ny": "Ku Chiradzulu kuli mafumu akuluakulu angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[(10,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 147,
+    "question_en": "List all the distinct Traditional Authorities (TAs) in Neno",
+    "question_ny": "Pelekani ndandanda wa mafumu akuluakulu osiyanasiyana ku Neno",
+    "sql_statement": "SELECT DISTINCT ta_name FROM population WHERE district_name = 'Neno';",
+    "sql_result": "[('TA Chekucheku',), ('Neno Boma',), ('TA Symon Likongwe',), ('TA Dambe',), ('TA Mlauli',)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 148,
+    "question_en": "How many females in Chiradzulu?",
+    "question_ny": "Ku Chiradzulu kuli akazi angati?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Chiradzulu';",
+    "sql_result": "[(187196,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 149,
+    "question_en": "Find the population of people in the Urban settlements.",
+    "question_ny": "Pezani chiwerengero cha anthu mmadera a mmizinda",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE admin_status = 'Urban';",
+    "sql_result": "[(7578104,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 150,
+    "question_en": "How many males in Rural settlements?",
+    "question_ny": "Mmadera akumidzi kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE admin_status = 'Rural';",
+    "sql_result": "[(7152151.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 151,
+    "question_en": "How many females in the Urban settlements?",
+    "question_ny": "Mmadera a mmizinda muli akazi angati? ",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE admin_status = 'Urban';",
+    "sql_result": "[(1382086.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 152,
+    "question_en": "What is the total population of people in the Rural settlements?",
+    "question_ny": "Kodi chiwerengero chonse anthu mmadera akumidzi ndi chochuluka bwanji? ",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE admin_status = 'Rural';",
+    "sql_result": "[(42090193,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 153,
+    "question_en": "How many males in Karonga?",
+    "question_ny": "Ku Karonga kuli amuna angati?",
+    "sql_statement": "SELECT SUM(population_male) FROM population WHERE district_name = 'Karonga';",
+    "sql_result": "[(176197.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 154,
+    "question_en": "Which Traditional Authority (TA) in Chiradzulu has the least male population?",
+    "question_ny": "Ndi mfumu yayikulu iti ku Chiradzulu imene ili ndi chiwerengero cha amuna chotsika?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(population_male AS INTEGER)) as total_male FROM population WHERE district_name = 'Chiradzulu' GROUP BY ta_name ORDER BY total_male ASC LIMIT 1;",
+    "sql_result": "[('Chiradzulu Boma', 1378)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 155,
+    "question_en": "Which Traditional Authority (TA) in Chitipa has the largest total population?",
+    "question_ny": "Ndi mfumu yayikulu iti ku Chitipa imene ili ndi chiwerengero cha anthu chochuluka ?",
+    "sql_statement": "SELECT ta_name, SUM(CAST(total_population AS INTEGER)) as total_pop FROM population WHERE district_name = 'Chitipa' GROUP BY ta_name ORDER BY total_pop DESC LIMIT 1;",
+    "sql_result": "[('TA Mwabulambya', 181910)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 156,
+    "question_en": "How many females in Blantyre District?",
+    "question_ny": "M'bola ma Blantyre muli akazi angati?",
+    "sql_statement": "SELECT SUM(population_female) FROM population WHERE district_name = 'Blantyre';",
+    "sql_result": "[(631848.0,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 157,
+    "question_en": "What is the total population in the urban settlements of Traditional Authority (TA) Area 21?",
+    "question_ny": "Kodi chiwerengero chonse cha anthu mdera la mzinda wa 21 ndi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(total_population AS INTEGER)) FROM population WHERE ta_name = 'Area 21' AND admin_status = 'Urban';",
+    "sql_result": "[(161099,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 158,
+    "question_en": "How many females are in Blantyre's urban settlements?",
+    "question_ny": "Mumzinda wa Blantyre muli chiwerengero cha akazi chochuluka bwanji?",
+    "sql_statement": "SELECT SUM(CAST(population_female AS INTEGER)) FROM population WHERE district_name = 'Blantyre' AND admin_status = 'Urban';",
+    "sql_result": "[(399092,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 159,
+    "question_en": "How many rural Traditional Authorities (TAs) are in Karonga?",
+    "question_ny": "Ku Karonga kuli mafumu a mmadera akumidzi angati?",
+    "sql_statement": "SELECT COUNT(DISTINCT ta_name) FROM population WHERE district_name = 'Karonga' AND admin_status = 'Rural' AND ta_name LIKE 'TA %';",
+    "sql_result": "[(5,)]",
+    "difficulty_level": "medium",
+    "table": "population"
+  },
+  {
+    "id": 160,
+    "question_en": "How many females are in Mchinji's rural settlements?",
+    "question_ny": "Mmadera akumidzi ku Mchinji kuli akazi angati?",
+    "sql_statement": "SELECT SUM(CAST(population_female AS INTEGER)) FROM population WHERE district_name = 'Mchinji' AND admin_status = 'Rural';",
+    "sql_result": "[(291446,)]",
+    "difficulty_level": "easy",
+    "table": "population"
+  },
+  {
+    "id": 161,
+    "question_en": "What is the price of Maize in Rumphi",
+    "question_ny": "Kodi chimanga chikugulitsidwa pa mtengo wanji ku Rumphi?",
+    "sql_statement": "SELECT district, AVG(price) as average_price FROM commodity_prices WHERE commodity = 'Maize' AND collection_date = (SELECT MAX(collection_date) FROM commodity_prices WHERE commodity = 'Maize') AND district = 'Rumphi' GROUP BY district;",
+    "sql_result": "[('Rumphi', 764.445)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 162,
+    "question_en": "What is the price of rice in Lilongwe district now",
+    "question_ny": "Mpunga ukugulitsidwa pa mtengo wanji panopa ku Lilongwe?",
+    "sql_statement": "SELECT district, AVG(price) as average_price FROM commodity_prices WHERE commodity = 'Rice' AND collection_date = (SELECT MAX(collection_date) FROM commodity_prices WHERE commodity = 'Rice') AND district = 'Lilongwe' GROUP BY district;",
+    "sql_result": "[('Lilongwe', 1867.5)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 163,
+    "question_en": "Which district has the lowest price for groundnuts?",
+    "question_ny": "Mtedza otchipitsitsa ukupezeka mboma liti?",
+    "sql_statement": "SELECT district, AVG(price) AS Avg_price FROM commodity_prices\nWHERE commodity = 'Groundnuts'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Groundnuts'\n  );",
+    "sql_result": "[('Karonga', 2169.49)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 164,
+    "question_en": "Which five districts have the lowest average Maize price on the most recent collection date?",
+    "question_ny": "Ndi maboma asanu ati omwe akugulisa chimanga pa mtengo wapakatikati otsikilapo?",
+    "sql_statement": "SELECT district, AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  )\nGROUP BY district\nORDER BY average_price ASC\nLIMIT 5;",
+    "sql_result": "[('Mzimba', 500.4625), ('Chikwawa', 518.8447222333333), ('Karonga', 524.6175000000001), ('Dedza', 532.585), ('Ntcheu', 545.0)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 165,
+    "question_en": "Which market offers the highest price for Soya beans (best place to sell)?",
+    "question_ny": "Ndi msika uti komwe ndingakagulise Soya ndikupeza phindu lochuluka?",
+    "sql_statement": "SELECT market, AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Soya beans'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Soya beans'\n  )\nGROUP BY market\nORDER BY average_price DESC\nLIMIT 1;",
+    "sql_result": "[('Monkey Bay', 2037.81)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 166,
+    "question_en": "What is the average price of Beans on the most recent collection date?",
+    "question_ny": " Kodi mtengo wa nyemba wapakatikati ndi uti pakadali pano?",
+    "sql_statement": "SELECT AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Beans'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Beans'\n  );",
+    "sql_result": "[(2704.912755319149,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 167,
+    "question_en": "What is the average Maize price in the district of Dowa on the most recent collection date?",
+    "question_ny": "Mtengo wa chimanga wapakatikati  m'boma la Dowa ndi uti??",
+    "sql_statement": "SELECT AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND district = 'Dowa'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n        AND district = 'Dowa'\n  );",
+    "sql_result": "[(592.5,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 168,
+    "question_en": "Which five districts have the lowest Bean prices on the most recent collection date?",
+    "question_ny": "Ndi maboma asanu ati omwe akugulisa nyemba pa mtengo otsikilapo?",
+    "sql_statement": "SELECT district, AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Beans'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Beans'\n  )\nGROUP BY district\nORDER BY average_price ASC\nLIMIT 5;",
+    "sql_result": "[('Chikwawa', 1233.3333333333333), ('Ntchisi', 1841.65), ('Nkhata Bay', 1854.663), ('Karonga', 2058.5550000000003), ('Rumphi', 2145.78)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 169,
+    "question_en": "Which five districts offer the cheapest Groundnuts on the most recent collection date?",
+    "question_ny": "Ndi maboma asanu ati omwe akugulisa mbeu ya mtedza pa mtengo otsika kwambili?",
+    "sql_statement": "SELECT district, AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Groundnuts'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Groundnuts'\n  )\nGROUP BY district\nORDER BY average_price ASC\nLIMIT 5;",
+    "sql_result": "[('Karonga', 1256.48), ('Dedza', 1259.2730000000001), ('Chikwawa', 1550.0), ('Nkhata Bay', 1637.79), ('Nkhotakota', 1800.0)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 170,
+    "question_en": "What is the national average Maize price on the most recent collection date?",
+    "question_ny": "Kodi mtengo wachimanga wapakatikati mdziko muno ndi uti?",
+    "sql_statement": "SELECT AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  );",
+    "sql_result": "[(599.5864912289475,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 171,
+    "question_en": "How much is a 50 kg bag of Maize in Rumphi on the most recent collection date?",
+    "question_ny": "Kodi chimanga cholemera ma kilogalamu 50 boma la Rumphi chikugulitsidwa pa mtengo wanji?",
+    "sql_statement": "SELECT district, AVG(price) * 50 AS price_per_50kg_bag\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND district = 'Rumphi'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  )\nGROUP BY district;",
+    "sql_result": "[('Rumphi', 38222.25)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 172,
+    "question_en": "How much is a 50 kg bag of Maize in Nsanje on the most recent collection date?",
+    "question_ny": "Kodi chimanga cholemera ma kilogalamu 50 boma la Nsanje chikugulitsidwa pa mtengo wanji?",
+    "sql_statement": "SELECT district, AVG(price) * 50 AS price_per_50kg_bag\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND district = 'Nsanje'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  )\nGROUP BY district;",
+    "sql_result": "[('Nsanje', 35000.125)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 173,
+    "question_en": "What is the price of a 100 kg bag of Beans in Lilongwe on the most recent collection date?",
+    "question_ny": "Nyemba zolemera ma kilogalamu 100 zikugulitsidwa pa mtengo wanji ku Lilongwe?",
+    "sql_statement": "SELECT district, AVG(price) * 100 AS price_per_100kg_bag\nFROM commodity_prices\nWHERE commodity = 'Beans'\n  AND district = 'Lilongwe'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Beans'\n  )\nGROUP BY district;",
+    "sql_result": "[('Lilongwe', 307200.0)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 174,
+    "question_en": "What is the national average price for a 50 kg bag of Maize on the most recent collection date?",
+    "question_ny": "Mtengo wapakatikati wa chimanga cholemera ma kilogalamu 50 dziko lonse ndi uti?",
+    "sql_statement": "SELECT AVG(price) * 50 AS price_per_50kg_bag\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  );",
+    "sql_result": "[(29979.324561447374,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 175,
+    "question_en": "What is the average Maize price in Kasungu on the most recent collection date?",
+    "question_ny": "Kodi mtengo wapakatikati wa Chimanga ku Kasungu ndi uti?",
+    "sql_statement": "SELECT AVG(price)\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND district = 'Kasungu'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  );",
+    "sql_result": "[(618.986,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 176,
+    "question_en": "Which district has the highest Rice price on the most recent collection date?",
+    "question_ny": "Ndi boma liti lomwe lili ndi mtengo wokwera kwambili wa mpunga mwaposachedwapa?",
+    "sql_statement": "SELECT district, MAX(price) AS max_price\nFROM commodity_prices\nWHERE commodity = 'Rice'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Rice'\n  )\nGROUP BY district\nORDER BY max_price DESC\nLIMIT 1;",
+    "sql_result": "[('Mangochi', 3034.636)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 177,
+    "question_en": "What is the minimum Beans price recorded in Mzimba on the most recent collection date?",
+    "question_ny": "Kodi mtengo wotsika kwambiri wa nyemba ku Mzimba unali bwanji posachedwapa?",
+    "sql_statement": "SELECT district, MIN(price) AS min_price\nFROM commodity_prices\nWHERE commodity = 'Beans'\n  AND district = 'Mzimba'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Beans'\n  )\nGROUP BY district;",
+    "sql_result": "[('Mzimba', 2436.45)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 178,
+    "question_en": "Which market has the highest average Rice price on the most recent collection date?",
+    "question_ny": "Ndi msika uti womwe uli ndi mtengo wa mpunga okwera kwambiri wapakatikati posachedwapa?",
+    "sql_statement": "SELECT market, AVG(price) AS average_price\nFROM commodity_prices\nWHERE commodity = 'Rice'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Rice'\n  )\nGROUP BY market\nORDER BY average_price DESC\nLIMIT 1;",
+    "sql_result": "[('Monkey Bay', 3034.636)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 179,
+    "question_en": "What is the total of recorded Maize prices in Lilongwe on the most recent collection date?",
+    "question_ny": "Kodi mitengo yonse ya Chimanga yomwe inalembedwa ku Lilongwe ndi yochuluka bwanji chatsopano?",
+    "sql_statement": "SELECT district, SUM(price) AS total_price_sum\nFROM commodity_prices\nWHERE commodity = 'Maize'\n  AND district = 'Lilongwe'\n  AND collection_date = (\n      SELECT MAX(collection_date)\n      FROM commodity_prices\n      WHERE commodity = 'Maize'\n  )\nGROUP BY district;",
+    "sql_result": "[('Lilongwe', 1750.0)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 180,
+    "question_en": "Which districts have rice prices above the national average?",
+    "question_ny": "Ndi maboma ati omwe ali ndi mitengo ya Mpunga yoposa mtego wakatikati wa dziko lonse?",
+    "sql_statement": "SELECT district FROM commodity_prices WHERE commodity = 'Rice' GROUP BY district HAVING AVG(price) > (SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Rice');",
+    "sql_result": "[('Balaka',), ('Chikwawa',), ('Chiradzulu',), ('Kasungu',), ('Lilongwe',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Neno',), ('Nsanje',), ('Phalombe',), ('Thyolo',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 181,
+    "question_en": "Which commodity had the highest average price in the most recent collection date?",
+    "question_ny": "Ndi mbewu iti yomwe inali ndi mtengo wapakatikati okwera posachedwapa?",
+    "sql_statement": "SELECT commodity, AVG(price) AS Avg_price FROM commodity_prices WHERE collection_date = (SELECT MAX(collection_date) FROM commodity_prices);",
+    "sql_result": "[('Maize', 1702.65)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 182,
+    "question_en": "Which market recorded the largest price difference for maize?",
+    "question_ny": "Ndi msika uti womwe unasonyeza kusiyana kwakukulu kwa mtengo wa Chimanga kumisika yonse?",
+    "sql_statement": "SELECT market, (MAX(price) - MIN(price)) FROM commodity_prices WHERE commodity = 'Maize' GROUP BY market ORDER BY (MAX(price) - MIN(price)) DESC LIMIT 1;",
+    "sql_result": "[('Bvumbwe', 1299.9)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 183,
+    "question_en": "What is the average price of maize in Salima?",
+    "question_ny": "Kodi mtengo wapakatikati wa Chimanga ku Salima ndi uti?",
+    "sql_statement": "SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Maize' AND district = 'Salima';",
+    "sql_result": "[(798.41875,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 184,
+    "question_en": "Which district recorded the lowest rice price?",
+    "question_ny": "Ndi boma liti lomwe linali ndi mtengo wotsika kwambili wa Mpunga?",
+    "sql_statement": "SELECT district, MAX(price) AS max_price FROM commodity_prices WHERE commodity = 'Rice';",
+    "sql_result": "[('Mchinji', 4000.0)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 185,
+    "question_en": "What is the highest beans price recorded in Lilongwe?",
+    "question_ny": "Kodi mtengo okwera wa nyemba ku Lilongwe ndi uti?",
+    "sql_statement": "SELECT MAX(price) FROM commodity_prices WHERE commodity = 'Beans' AND district = 'Lilongwe';",
+    "sql_result": "[(4000.0,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 186,
+    "question_en": "Which market recorded the lowest maize price?",
+    "question_ny": "Ndi msika uti womwe unali ndi mtengo wotsika kwambili wa chimanga?",
+    "sql_statement": "SELECT market, MAX(price) AS max_price FROM commodity_prices WHERE commodity = 'Maize';",
+    "sql_result": "[('Bvumbwe', 1933.33)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 187,
+    "question_en": "What is the average price of rice in Dedza?",
+    "question_ny": "Kodi mtengo wapakatikati wa mpunga ku Dedza ndi uti?",
+    "sql_statement": "SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Rice' AND district = 'Dedza';",
+    "sql_result": "[(1868.0361666666668,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 188,
+    "question_en": "Which district has the highest average maize price?",
+    "question_ny": "Ndi boma liti lomwe lili ndi mtengo wapakatikati wokwera kwambili wa chimanga?",
+    "sql_statement": "SELECT district, AVG(price) AS Avg_price FROM commodity_prices WHERE commodity = 'Maize';",
+    "sql_result": "[('Chitipa', 737.42)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 189,
+    "question_en": "Which market has the highest average beans price?",
+    "question_ny": "Ndi msika uti womwe uli ndi mtengo wapakatikati wokwera kwambili wa nyemba?",
+    "sql_statement": "SELECT market, AVG(price) AS Avg_price FROM commodity_prices WHERE commodity = 'Beans';",
+    "sql_result": "[('Misuku', 2774.04)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 190,
+    "question_en": "What is the average maize price recorded on the most recent date?",
+    "question_ny": "Kodi mtengo wapakatikati wa chimanga wapompano ndi uti?",
+    "sql_statement": "SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Maize' AND collection_date = (SELECT MAX(collection_date) FROM commodity_prices WHERE commodity = 'Maize');",
+    "sql_result": "[(599.5864912289475,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 191,
+    "question_en": "Which commodity has the lowest average price?",
+    "question_ny": "Ndi mbewu iti yomwe ili ndi mtengo wapakatikati wotsika kwambiri?",
+    "sql_statement": "SELECT commodity, AVG(price) AS Avg_price FROM commodity_prices;",
+    "sql_result": "[('Maize', 1776.67)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 192,
+    "question_en": "How many districts recorded maize prices above 700?",
+    "question_ny": "Kodi ndi maboma angati omwe anali ndi mtengo wa chimanga woposa 700?",
+    "sql_statement": "SELECT COUNT(DISTINCT district) FROM commodity_prices WHERE commodity = 'Maize' AND price > 700;",
+    "sql_result": "[(23,)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 193,
+    "question_en": "Which districts have an average beans price above the national average?",
+    "question_ny": "Ndi maboma ati omwe ali ndi mtengo wapakatikati wa nyemba woposa wa dziko lonse?",
+    "sql_statement": "SELECT district FROM commodity_prices WHERE commodity = 'Beans' GROUP BY district HAVING AVG(price) > (SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Beans');",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chiradzulu',), ('Kasungu',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Nsanje',), ('Salima',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 194,
+    "question_en": "Which commodity shows the smallest price variation?",
+    "question_ny": "Ndi chakudya chiti chomwe chikuonesa kusiyana kochepa kwa mitengo?",
+    "sql_statement": "SELECT commodity, (MAX(price) - MIN(price)) FROM commodity_prices GROUP BY commodity ORDER BY (MAX(price) - MIN(price)) ASC LIMIT 1;",
+    "sql_result": "[('Maize', 1610.83)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 195,
+    "question_en": "Which market has maize prices consistently above the national average?",
+    "question_ny": "Ndi msika uti womwe uli ndi mitengo ya chimanga yokhazikika yoposa yapakatikati ya dziko lonse?",
+    "sql_statement": "SELECT market FROM commodity_prices WHERE commodity = 'Maize' GROUP BY market HAVING AVG(price) > (SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Maize');",
+    "sql_result": "[('Balaka',), ('Bangula',), ('Bvumbwe',), ('Chintheche',), ('Chiradzulu',), ('Dwangwa',), ('Jali',), ('Limbe',), ('Liwonde',), ('Lizulu',), ('Luncheza',), ('Lunzu',), ('Mangochi',), ('Mayaka',), ('Monkey Bay',), ('Mtakataka',), ('Mwanza',), ('Namwera',), ('Neno',), ('Ngabu',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntaja',), ('Rumphi',), ('Salima',), ('Thete',), ('Thondwe',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 196,
+    "question_en": "Which district recorded the highest rice price on the most recent collection date?",
+    "question_ny": "Ndi boma liti lomwe linali ndi mtengo wokwera wa mpunga chapompano?",
+    "sql_statement": "SELECT district, MAX(price) AS max_price FROM commodity_prices WHERE commodity = 'Rice' AND collection_date = (SELECT MAX(collection_date) FROM commodity_prices WHERE commodity = 'Rice');",
+    "sql_result": "[('Mangochi', 3034.64)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 197,
+    "question_en": "Which commodity had prices recorded in all districts?",
+    "question_ny": "Ndi chakudya chiti chomwe mitengo yake inalembedwa m'maboma onse?",
+    "sql_statement": "SELECT commodity FROM commodity_prices GROUP BY commodity HAVING COUNT(DISTINCT district) = (SELECT COUNT(DISTINCT district) FROM commodity_prices);",
+    "sql_result": "[('Beans',), ('Groundnuts',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 198,
+    "question_en": "What is the average price of maize across all districts?",
+    "question_ny": "Kodi mtengo wapakatikati wa chimanga maboma onse ndi uti?",
+    "sql_statement": "SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Maize';",
+    "sql_result": "[(737.4214640872929,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 199,
+    "question_en": "Which district recorded the highest maize price on the most recent date?",
+    "question_ny": "Ndi boma liti lomwe lidali ndi mtengo okwera wa chimanga posachedwapa?",
+    "sql_statement": "SELECT district, MAX(price) AS max_price FROM commodity_prices WHERE commodity = 'Maize' AND collection_date = (SELECT MAX(collection_date) FROM commodity_prices WHERE commodity = 'Maize');",
+    "sql_result": "[('Rumphi', 764.45)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 200,
+    "question_en": "How many markets recorded bean prices above 800?",
+    "question_ny": "Kodi ndi misika ingati inasonyeza mtengo wa nyemba woposa 800?",
+    "sql_statement": "SELECT COUNT(DISTINCT market) FROM commodity_prices WHERE commodity = 'Beans' AND price > 800;",
+    "sql_result": "[(61,)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 201,
+    "question_en": "What is the lowest rice price recorded in Salima?",
+    "question_ny": "Kodi mtengo wotsika kwambiri wa mpunga ku Salima ndi uti?",
+    "sql_statement": "SELECT MIN(price) FROM commodity_prices WHERE commodity = 'Rice' AND district = 'Salima';",
+    "sql_result": "[(1800.0,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 202,
+    "question_en": "Which market has the highest average maize price?",
+    "question_ny": "Ndi msika uti womwe uli ndi mtengo wapakati wapamwamba wa chimanga?",
+    "sql_statement": "SELECT market, AVG(price) AS Avg_price FROM commodity_prices WHERE commodity = 'Maize';",
+    "sql_result": "[('Misuku', 737.42)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 203,
+    "question_en": "Which commodity shows the largest price variation nationwide?",
+    "question_ny": "Ndi mbewu iti yemwe ikuwonetsa kusiyana kwakukulu kwa mitengo m'dziko lonse?",
+    "sql_statement": "SELECT commodity, (MAX(price) - MIN(price)) FROM commodity_prices GROUP BY commodity ORDER BY (MAX(price) - MIN(price)) DESC LIMIT 1;",
+    "sql_result": "[('Beans', 18842.23)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 204,
+    "question_en": "Which districts have an average maize price higher than the national average?",
+    "question_ny": "Ndi maboma ati omwe ali ndi mtengo wapakati wa chimanga woposa wa dziko lonse?",
+    "sql_statement": "SELECT district FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district HAVING AVG(price) > (SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Maize');",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chiradzulu',), ('Machinga',), ('Mangochi',), ('Mwanza',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 205,
+    "question_en": "Mention the commodities that have prices recorded in every district.",
+    "question_ny": "Ndi mbewu ziti zomwe mitengo yake yalembedwa m'maboma onse?",
+    "sql_statement": "SELECT commodity FROM commodity_prices GROUP BY commodity HAVING COUNT(DISTINCT district) = (SELECT COUNT(DISTINCT district) FROM commodity_prices);",
+    "sql_result": "[('Beans',), ('Groundnuts',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 206,
+    "question_en": "Which market recorded maize prices on the most collection dates?",
+    "question_ny": "Ndi msika uti womwe unalemba mitengo ya chimanga masiku ambiri?",
+    "sql_statement": "SELECT market, COUNT(DISTINCT collection_date) FROM commodity_prices WHERE commodity = 'Maize' GROUP BY market ORDER BY COUNT(DISTINCT collection_date) DESC LIMIT 1;",
+    "sql_result": "[('Ngabu', 5)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 207,
+    "question_en": "What is the average price difference between the highest and lowest maize prices?",
+    "question_ny": "Kodi kusiyana kwa  mitengo yapakatikati ya chimanga yokwera kwambiri ndi yotsika kwambiri ndi kotani?",
+    "sql_statement": "SELECT AVG(max_price - min_price) FROM (SELECT district, MAX(price) AS max_price, MIN(price) AS min_price FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district);",
+    "sql_result": "[(341.32323333200003,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 208,
+    "question_en": "What is the average price of rice across all markets?",
+    "question_ny": "Kodi mtengo wapakatikati wa mpunga m'misika yonse ndi uti?",
+    "sql_statement": "SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Rice';",
+    "sql_result": "[(1967.1836967213114,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 209,
+    "question_en": "How many districts have recorded maize prices below 600?",
+    "question_ny": "Kodi ndi maboma angati omwe anali mtengo wa chimanga wotsika kuposa 600?",
+    "sql_statement": "SELECT COUNT(DISTINCT district) FROM commodity_prices WHERE commodity = 'Maize' AND price < 600;",
+    "sql_result": "[(15,)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 210,
+    "question_en": "Which district has the highest average rice price?",
+    "question_ny": "Ndi boma liti lomwe lili ndi mtengo wokwera kuposa wapakatikati  wa mpunga?",
+    "sql_statement": "SELECT district, AVG(price) AS Avg_price FROM commodity_prices WHERE commodity = 'Rice';",
+    "sql_result": "[('Chitipa', 1967.18)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 211,
+    "question_en": "What is the maximum cowpeas price recorded in Blantyre?",
+    "question_ny": "Kodi mtengo wokwera kwambiri wa khobwe ndi chani ku Blantyre? ",
+    "sql_statement": "SELECT MAX(price) FROM commodity_prices WHERE commodity = 'Cow peas' AND district = 'Blantyre';",
+    "sql_result": "[(1580.26,)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 212,
+    "question_en": "Which markets have an average bean price above 3000?",
+    "question_ny": "Ndi misika iti yomwe ili ndi mtengo wapakatikati wa nyemba woposa 3000?",
+    "sql_statement": "SELECT market FROM commodity_prices WHERE commodity = 'Beans' GROUP BY market HAVING AVG(price) > 3000;",
+    "sql_result": "[('Balaka',), ('Chamama',), ('Chatoloma',), ('Chiradzulu',), ('Jali',), ('Lilongwe',), ('Liwonde',), ('Lunzu',), ('Mangochi',), ('Mayaka',), ('Mchinji',), ('Mkanda',), ('Monkey Bay',), ('Msundwe',), ('Mwanza',), ('Salima',), ('Thondwe',), ('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 213,
+    "question_en": "Which commodity has the lowest average price nationally?",
+    "question_ny": "Ndi mbewu iti yomwe ili ndi mtengo wapakati wotsika kwambiri m'dziko lonse?",
+    "sql_statement": "SELECT commodity, AVG(price) AS Avg_price FROM commodity_prices;",
+    "sql_result": "[('Maize', 1776.67)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 214,
+    "question_en": "Which district shows the smallest variation in maize prices?",
+    "question_ny": "Ndi boma liti lomwe likuwonetsa kusiyana kochepa kwambiri kwa mtengo wa chimanga?",
+    "sql_statement": "SELECT district, (MAX(price) - MIN(price)) FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district ORDER BY (MAX(price) - MIN(price)) ASC LIMIT 1;",
+    "sql_result": "[('Rumphi', 57.27)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 215,
+    "question_en": "How many markets recorded cowpeas prices on more than two different dates?",
+    "question_ny": "Ndi misika ingati inalemba mitengo ya khobwe pa masiku oposa awiri osiyana? ",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT market FROM commodity_prices WHERE commodity = 'Cow peas' GROUP BY market HAVING COUNT(DISTINCT collection_date) > 2);",
+    "sql_result": "[(21,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 216,
+    "question_en": "Which district recorded the highest maize price difference between its maximum and minimum?",
+    "question_ny": "Ndi boma liti lomwe linali ndi kusiyana kwakukulu pakati pa mtengo wokwera ndi wotsika wa chimanga?",
+    "sql_statement": "SELECT district, (MAX(price) - MIN(price)) FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district ORDER BY (MAX(price) - MIN(price)) DESC LIMIT 1;",
+    "sql_result": "[('Thyolo', 1355.68)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 217,
+    "question_en": "Which commodity has prices recorded in the greatest number of markets?",
+    "question_ny": "Ndi mbewu iti yomwe ili ndi mitengo yolembedwa m'misika yambiri?",
+    "sql_statement": "SELECT commodity, COUNT(DISTINCT market) FROM commodity_prices GROUP BY commodity ORDER BY COUNT(DISTINCT market) DESC LIMIT 1;",
+    "sql_result": "[('Beans', 61)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 218,
+    "question_en": "Which district recorded maize prices in the fewest number of markets?",
+    "question_ny": "Ndi boma liti lomwe linalemba mitengo ya chimanga m'misika yochepa kwambiri?",
+    "sql_statement": "SELECT district, COUNT(DISTINCT market) FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district ORDER BY COUNT(DISTINCT market) ASC LIMIT 1;",
+    "sql_result": "[('Balaka', 1)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 219,
+    "question_en": "Which commodity had the highest average price in Lilongwe?",
+    "question_ny": "Ndi mbewu ziti zomwe zinali ndi mtengo wapakatikati wokwera kwambiri ku Lilongwe?",
+    "sql_statement": "SELECT commodity, AVG(price) AS Avg_price FROM commodity_prices WHERE district = 'Lilongwe';",
+    "sql_result": "[('Maize', 1686.16)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 220,
+    "question_en": "How many districts recorded prices for more than one commodity?",
+    "question_ny": "Kodi ndi maboma angati omwe analemba mitengo ya mbewu zoposa imodzi?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT district FROM commodity_prices GROUP BY district HAVING COUNT(DISTINCT commodity) > 1);",
+    "sql_result": "[(27,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 221,
+    "question_en": "Which market recorded the lowest average price across all commodities?",
+    "question_ny": "Ndi msika uti womwe unalemba mtengo wapakatikati wotsika kwambiri wa mbewu zonse?",
+    "sql_statement": "SELECT market, AVG(price) AS Avg_price FROM commodity_prices;",
+    "sql_result": "[('Misuku', 1776.67)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 222,
+    "question_en": "Which commodity shows the most stable prices in Blantyre?",
+    "question_ny": "Ndi mbewu ziti zomwe zikuwonetsa kukhazikika kwambiri kwa mitengo ku Blantyre?",
+    "sql_statement": "SELECT commodity, (MAX(price) - MIN(price)) FROM commodity_prices WHERE district = 'Blantyre' GROUP BY commodity ORDER BY (MAX(price) - MIN(price)) ASC LIMIT 1;",
+    "sql_result": "[('Rice', 176.03)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 223,
+    "question_en": "Which district recorded maize prices only on a single collection date?",
+    "question_ny": "Ndi boma liti lomwe linalemba mitengo ya chimanga pa tsiku limodzi lokha?",
+    "sql_statement": "SELECT district FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district HAVING COUNT(DISTINCT collection_date) = 1;",
+    "sql_result": "[('Zomba',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 224,
+    "question_en": "How many markets have recorded prices for all available commodities?",
+    "question_ny": "Ndi misika ingati yomwe yalemba mitengo ya mbewu zonse zomwe zilipo?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT market FROM commodity_prices GROUP BY market HAVING COUNT(DISTINCT commodity) = (SELECT COUNT(DISTINCT commodity) FROM commodity_prices));",
+    "sql_result": "[(36,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 225,
+    "question_en": "Which district recorded the widest range of prices across all commodities?",
+    "question_ny": "Ndi boma liti lomwe linalemba kusiyana kwakukulu kwa mitengo ya mbewu zonse?",
+    "sql_statement": "SELECT district, (MAX(price) - MIN(price)) FROM commodity_prices GROUP BY district ORDER BY (MAX(price) - MIN(price)) DESC LIMIT 1;",
+    "sql_result": "[('Kasungu', 19642.23)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 226,
+    "question_en": "How many commodities have never exceeded a price of 1000?",
+    "question_ny": "Kodi ndi mbewu zingati zomwe mtengo wake sunadutse 1000?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT commodity FROM commodity_prices GROUP BY commodity HAVING MAX(price) <= 1000);",
+    "sql_result": "[(0,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 227,
+    "question_en": "Which district recorded prices for the largest number of distinct commodities?",
+    "question_ny": "Ndi boma liti lomwe linalemba mitengo yambiri pa mbewu zikuluzikulu?",
+    "sql_statement": "SELECT district, COUNT(DISTINCT commodity) FROM commodity_prices GROUP BY district ORDER BY COUNT(DISTINCT commodity) DESC LIMIT 1;",
+    "sql_result": "[('Balaka', 6)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 228,
+    "question_en": "How many markets have recorded prices in more than one district?",
+    "question_ny": "Kodi misika ingati yomwe yalemba mitengo m'maboma oposa amodzi?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT market FROM commodity_prices GROUP BY market HAVING COUNT(DISTINCT district) > 1);",
+    "sql_result": "[(0,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 229,
+    "question_en": "Which commodity has the highest average price range between markets?",
+    "question_ny": "Ndi mbewu iti yomwe ili ndi kusiyana kwakukulu kwa mtengo wapakatikati pakati pa misika?",
+    "sql_statement": "SELECT commodity, (MAX(price) - MIN(price)) FROM commodity_prices GROUP BY commodity ORDER BY (MAX(price) - MIN(price)) DESC LIMIT 1;",
+    "sql_result": "[('Beans', 18842.23)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 230,
+    "question_en": "Which district has recorded prices for rice but not for cow peas?",
+    "question_ny": "Ndi boma liti lomwe linalemba mitengo ya mpunga koma osati wa khobwe?",
+    "sql_statement": "SELECT DISTINCT district FROM commodity_prices WHERE commodity = 'Rice' AND district NOT IN (SELECT district FROM commodity_prices WHERE commodity = 'Cow peas');",
+    "sql_result": "[('Chitipa',), ('Mzimba',), ('Nkhata Bay',), ('Salima',), ('Phalombe',), ('Rumphi',)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 231,
+    "question_en": "How many districts recorded maize prices on every available collection date?",
+    "question_ny": "Kodi ndi maboma angati omwe analemba mitengo ya chimanga pa masiku onse olembera mitengo?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT district FROM commodity_prices WHERE commodity = 'Maize' GROUP BY district HAVING COUNT(DISTINCT collection_date) = (SELECT COUNT(DISTINCT collection_date) FROM commodity_prices WHERE commodity = 'Maize'));",
+    "sql_result": "[(12,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 232,
+    "question_en": "Which market recorded the highest average price across all commodities and dates?",
+    "question_ny": "Ndi msika uti womwe unalemba mtengo wapakatikati wokwera wa zokolola zonse pa masiku onse?",
+    "sql_statement": "SELECT market, AVG(price) AS Avg_price FROM commodity_prices;",
+    "sql_result": "[('Misuku', 1776.67)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 233,
+    "question_en": "Which commodity has prices recorded in the fewest districts?",
+    "question_ny": "Ndi zokolola ziti zomwe zili ndi mitengo yolembedwa m'maboma ochepa kwambiri?",
+    "sql_statement": "SELECT commodity, COUNT(DISTINCT district) FROM commodity_prices GROUP BY commodity ORDER BY COUNT(DISTINCT district) ASC LIMIT 1;",
+    "sql_result": "[('Cow peas', 20)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 234,
+    "question_en": "How many districts recorded bean prices above the average bean price?",
+    "question_ny": "Kodi ndi maboma angati omwe analemba mtengo wa nyemba woposa wapakatikati?",
+    "sql_statement": "SELECT COUNT(DISTINCT district) FROM commodity_prices WHERE commodity = 'Beans' AND price > (SELECT AVG(price) FROM commodity_prices WHERE commodity = 'Beans');",
+    "sql_result": "[(22,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 235,
+    "question_en": "Which market has the smallest variation in rice prices?",
+    "question_ny": "Ndi msika uti womwe uli ndi kusiyana kochepa kwambiri kwa mtengo wa mpunga?",
+    "sql_statement": "SELECT market, (MAX(price) - MIN(price)) FROM commodity_prices WHERE commodity = 'Rice' GROUP BY market ORDER BY (MAX(price) - MIN(price)) ASC LIMIT 1;",
+    "sql_result": "[('Bangula', 0.0)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 236,
+    "question_en": "How many commodities have prices recorded in at least five districts?",
+    "question_ny": "Kodi ndi zokolola ziti zomwe ali ndi mitengo yolembedwa m'maboma osachepera asanu?",
+    "sql_statement": "SELECT COUNT(*) FROM (SELECT commodity FROM commodity_prices GROUP BY commodity HAVING COUNT(DISTINCT district) >= 5);",
+    "sql_result": "[(6,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 237,
+    "question_en": "Which district recorded the lowest average price across all commodities?",
+    "question_ny": "Ndi boma liti lomwe linalemba mtengo wapakatikati wotsika wa zokolola zonse?",
+    "sql_statement": "SELECT district, AVG(price) AS Avg_price FROM commodity_prices;",
+    "sql_result": "[('Chitipa', 1776.67)]",
+    "difficulty_level": "easy",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 238,
+    "question_en": "Which commodity has prices recorded on the fewest collection dates?",
+    "question_ny": "Ndi zokolola ziti zomwe zili ndi mitengo yolembedwa pa masiku ochepa kwambiri?",
+    "sql_statement": "SELECT commodity, COUNT(DISTINCT collection_date) FROM commodity_prices GROUP BY commodity ORDER BY COUNT(DISTINCT collection_date) ASC LIMIT 1;",
+    "sql_result": "[('Beans', 5)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 239,
+    "question_en": "How many markets recorded prices for maize and beans on the same date?",
+    "question_ny": "Kodi misika ingati inalemba mitengo ya chimanga ndi nyemba pa tsiku limodzi lomwelo?",
+    "sql_statement": "SELECT COUNT(DISTINCT m1.market) FROM commodity_prices m1 JOIN commodity_prices m2 ON m1.market = m2.market AND m1.collection_date = m2.collection_date WHERE m1.commodity = 'Maize' AND m2.commodity = 'Beans';",
+    "sql_result": "[(54,)]",
+    "difficulty_level": "hard",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 240,
+    "question_en": "What is the price range of Groundnuts?",
+    "question_ny": "Kodi mtengo wotsika ndi wokwera wa mtedza ndi chani? ",
+    "sql_statement": "SELECT MIN(price), MAX(price) FROM commodity_prices WHERE commodity = 'Groundnuts' AND price > 0;",
+    "sql_result": "[(927.07, 4014.1)]",
+    "difficulty_level": "medium",
+    "table": "commodity_prices"
+  },
+  {
+    "id": 241,
+    "question_en": "What is the average closing price of Standard Bank Malawi?",
+    "question_ny": "Kodi mtengo wapakatikati wotsekera wa Standard Bank Malawi ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Standard Bank Malawi';",
+    "sql_result": "[(3417.780075829384,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 242,
+    "question_en": "What is the average closing price of NITL plc?",
+    "question_ny": "Mtengo wapakatikati wa NITL plc pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'NITL plc';",
+    "sql_result": "[(324.63651184834123,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 243,
+    "question_en": "What is the average closing price of Blantyre Hotels Limited?",
+    "question_ny": "Mtengo wapakatikati wa Blantyre Hotels Limited pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Blantyre Hotels Limited';",
+    "sql_result": "[(12.025545023696683,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 244,
+    "question_en": "What is the average closing price of FMB Capital Holdings?",
+    "question_ny": "Mtengo wapakatikati wa FMB Capital Holdings pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'FMB Capital Holdings';",
+    "sql_result": "[(358.39855924170615,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 245,
+    "question_en": "What is the average closing price of Airtel Malawi?",
+    "question_ny": "Mtengo wapakatikati wa Airtel Malawi pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Airtel Malawi';",
+    "sql_result": "[(66.45448341232228,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 246,
+    "question_en": "What is the average closing price of National Bank of Malawi?",
+    "question_ny": "Mtengo wapakatikati wa National Bank of Malawi pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'National Bank of Malawi';",
+    "sql_result": "[(2390.0983412322275,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 247,
+    "question_en": "What is the average closing price of Illovo Sugar Malawi?",
+    "question_ny": "Mtengo wapakatikati wa Illovo Sugar Malawi pamene msika umatseka ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Illovo Sugar Malawi';",
+    "sql_result": "[(883.8789289099526,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 248,
+    "question_en": "What is the average closing price of Sunbird Tourism?",
+    "question_ny": "Ndi mtengo uti wapakatikati wotsekera msika wa Sunbird Tourism?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Sunbird Tourism';",
+    "sql_result": "[(173.27,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 249,
+    "question_en": "What is the average closing price of MPICO plc?",
+    "question_ny": "Kodi ndi mtengo uti wapakatikati wotsekera msika wa MPICO plc?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'MPICO plc';",
+    "sql_result": "[(18.601687203791467,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 250,
+    "question_en": "What is the average closing price of First Discount House Bank?",
+    "question_ny": "Mtengo wapakatikati wotsekera msika wa banki ya First Discount House uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'First Discount House Bank';",
+    "sql_result": "[(102.71099526066351,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 251,
+    "question_en": "What is the average closing price of NICO Holdings?",
+    "question_ny": "Ndi mtengo uti wapakatikati wotsekera msika wa NICO Holdings ?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'NICO Holdings';",
+    "sql_result": "[(231.5452037914692,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 252,
+    "question_en": "What is the average closing price of Telekom Networks Malawi?",
+    "question_ny": "Mtengo wapakatikati wotsekera msika wa Telekom Networks Malawi ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Telekom Networks Malawi';",
+    "sql_result": "[(20.236985781990523,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 253,
+    "question_en": "What is the average closing price of ICON Properties?",
+    "question_ny": "Ndi mtengo uti wapakatikati wotsekera msika wa ICON Properties?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'ICON Properties';",
+    "sql_result": "[(14.715696682464454,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 254,
+    "question_en": "What is the average closing price of NBS Bank?",
+    "question_ny": "Mtengo wapakatikati wotsekera msika wa NBS Bank ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'NBS Bank';",
+    "sql_result": "[(137.57971563981044,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 255,
+    "question_en": "What is the average trading volume for companies in the Telecommunications sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda omwe kampani za lamya zachita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Telecommunications';",
+    "sql_result": "[(340575.4199052133,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 256,
+    "question_en": "What is the average trading volume for companies in the Hospitality sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda omwe kampani zokopa alendo zachita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Hospitality';",
+    "sql_result": "[(15581.303317535545,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 257,
+    "question_en": "What is the average trading volume for companies in the Banking sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda womwe ma banki achita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Banking';",
+    "sql_result": "[(342203.53971563984,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 258,
+    "question_en": "What is the average trading volume for companies in the Real Estate sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda omwe kampani za malonda a malo nd zinthu achita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Real Estate';",
+    "sql_result": "[(585246.745971564,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 259,
+    "question_en": "What is the average trading volume for companies in the Agriculture sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda omwe kampani za ntchito za ulimi zachita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Agriculture';",
+    "sql_result": "[(27652.913744075828,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 260,
+    "question_en": "What is the average trading volume for companies in the Financial Services sector?",
+    "question_ny": "Ndi mlingo uti wapakatikati wakuchuluka kwa malonda omwe kampani zowerengetsera ndalama zachita?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Financial Services';",
+    "sql_result": "[(58462.764454976306,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 261,
+    "question_en": "What was the most recent closing price of Airtel Malawi?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Airtel Malawi?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Airtel Malawi' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(138.01,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 262,
+    "question_en": "What was the most recent closing price of National Bank of Malawi?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku National Bank of Malawi?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'National Bank of Malawi' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(9426.32,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 263,
+    "question_en": "What was the most recent closing price of ICON Properties?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku ICON Properties?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'ICON Properties' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(17.95,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 264,
+    "question_en": "What was the most recent closing price of Illovo Sugar Malawi?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Illovo Sugar Malawi?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Illovo Sugar Malawi' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(1791.44,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 265,
+    "question_en": "What was the most recent closing price of NICO Holdings?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku NICO Holdings?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'NICO Holdings' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(1740.01,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 266,
+    "question_en": "What was the most recent closing price of First Discount House Bank?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku banki ya First Discount?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'First Discount House Bank' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(599.99,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 267,
+    "question_en": "What was the most recent closing price of Telekom Networks Malawi?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Telekom Networks Malawi? ",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Telekom Networks Malawi' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(35.52,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 268,
+    "question_en": "What was the most recent closing price of NITL plc?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku NITL plc?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'NITL plc' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(1922.0,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 269,
+    "question_en": "What was the most recent closing price of FMB Capital Holdings?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku FMB Capital Holdings?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'FMB Capital Holdings' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(1758.41,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 270,
+    "question_en": "What was the most recent closing price of Standard Bank Malawi?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Standard Bank of Malawi?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Standard Bank Malawi' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(6493.41,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 271,
+    "question_en": "What was the most recent closing price of Sunbird Tourism?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Sunbird Tourism?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Sunbird Tourism' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(460.02,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 272,
+    "question_en": "What was the most recent closing price of MPICO plc?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku MPICO plc?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'MPICO plc' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(19.51,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 273,
+    "question_en": "What was the most recent closing price of NBS Bank?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku banki ya NBS?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'NBS Bank' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(1024.79,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 274,
+    "question_en": "What was the most recent closing price of Blantyre Hotels Limited?",
+    "question_ny": "Ndi mtengo uti waposachedwa wotsekera  malonda ku Blantyre Hotels Limited?",
+    "sql_statement": "SELECT close_price FROM mse_daily WHERE company_name = 'Blantyre Hotels Limited' ORDER BY trade_date DESC LIMIT 1;",
+    "sql_result": "[(15.01,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 275,
+    "question_en": "On how many trading days did National Bank of Malawi close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe National Bank of Malawi inatseka ndi mtengo wokwera kuposa tsiku lapambuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'National Bank of Malawi' AND close_price > previous_close_price;",
+    "sql_result": "[(346,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 276,
+    "question_en": "On how many trading days did Blantyre Hotels Limited close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe Blantyre Hotels Limited inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Blantyre Hotels Limited' AND close_price > previous_close_price;",
+    "sql_result": "[(29,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 277,
+    "question_en": "On how many trading days did Airtel Malawi close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe Airtel Malawi  inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Airtel Malawi' AND close_price > previous_close_price;",
+    "sql_result": "[(268,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 278,
+    "question_en": "On how many trading days did MPICO plc close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe MPICO plc inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'MPICO plc' AND close_price > previous_close_price;",
+    "sql_result": "[(40,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 279,
+    "question_en": "On how many trading days did NBS Bank close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe banki ya NBS inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'NBS Bank' AND close_price > previous_close_price;",
+    "sql_result": "[(180,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 280,
+    "question_en": "On how many trading days did NICO Holdings close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe NICO Holdingd inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'NICO Holdings' AND close_price > previous_close_price;",
+    "sql_result": "[(156,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 281,
+    "question_en": "On how many trading days did Telekom Networks Malawi close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ochita malonda omwe Telekom Networks Malawi inatseka ndi mtengo wokwera kuposa tsiku la m'mbuyo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Telekom Networks Malawi' AND close_price > previous_close_price;",
+    "sql_result": "[(175,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 282,
+    "question_en": "On how many trading days did First Discount House Bank close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ogulitsa omwe First Discount House Bank inatseka ndi mtengo wokwera kuposa tsiku lapitalo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'First Discount House Bank' AND close_price > previous_close_price;",
+    "sql_result": "[(223,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 283,
+    "question_en": "On which date did Illovo Sugar Malawi record its highest closing price?",
+    "question_ny": "Ndi tsiku liti lomwe Illovo Sugar Malawi inatseka ndi mtengo okwera kwambiri?",
+    "sql_statement": "SELECT trade_date, MAX(close_price) AS max_close_price FROM mse_daily WHERE company_name = 'Illovo Sugar Malawi';",
+    "sql_result": "[('2025-03-18', 1791.75)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 284,
+    "question_en": "What is the average closing price of Old Mutual?",
+    "question_ny": "Kodi mtengo wapakatikati wotsekera malonda wa Old Mutual ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE company_name = 'Old Mutual';",
+    "sql_result": "[(1720.2587298578198,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 285,
+    "question_en": "What was the largest single-day percentage increase in close_price for NITL plc?",
+    "question_ny": "Kodi kuwonjezeka kwakukulu kwambiri kwa mtengo mu tsiku limodzi kwa NITL plc kunali kotani?",
+    "sql_statement": "SELECT MAX((close_price - previous_close_price)/previous_close_price * 100.0) FROM mse_daily WHERE company_name = 'NITL plc' AND previous_close_price > 0;",
+    "sql_result": "[(14.999209083843985,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 286,
+    "question_en": "What is the total traded volume for FMB Capital Holdings?",
+    "question_ny": "Kodi kuchuluka kwa malonda onse a FMB Capital Holdings ndi kotani?",
+    "sql_statement": "SELECT SUM(volume) FROM mse_daily WHERE company_name = 'FMB Capital Holdings';",
+    "sql_result": "[(78306098.0,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 287,
+    "question_en": "On which date did Sunbird Tourism record its highest trading volume?",
+    "question_ny": "Ndi tsiku liti lomwe Sunbord Tourism inachita malonda ochuluka kwambiri? ",
+    "sql_statement": "SELECT trade_date, MAX(volume) AS max_volume FROM mse_daily WHERE company_name = 'Sunbird Tourism';",
+    "sql_result": "[('2023-03-08', 236143.0)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 288,
+    "question_en": "On how many trading days did Press Corporation Limited close at a higher price than the previous day?",
+    "question_ny": "Ndi masiku angati ogulitsa omwe press Corporation Limited inatseka ndi mtengo wokwera kuposa tsiku lapitalo?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Press Corporation Limited' AND close_price > previous_close_price;",
+    "sql_result": "[(50,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 289,
+    "question_en": "What was the highest closing price ever recorded for Press Corporation Limited?",
+    "question_ny": "Kodi mtengo wokwera kwambiri womwe Press Corporation Limited inagulitsa unali uti?",
+    "sql_statement": "SELECT MAX(close_price) FROM mse_daily WHERE company_name = 'Press Corporation Limited';",
+    "sql_result": "[(6600.0,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 290,
+    "question_en": "What is the lowest closing price recorded for NBS Bank?",
+    "question_ny": "Kodi mtengo wotsika kwambiri wotseka womwe NBS Bank inagulitsa ndi uti?",
+    "sql_statement": "SELECT MIN(close_price) FROM mse_daily WHERE company_name = 'NBS Bank';",
+    "sql_result": "[(20.44,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 291,
+    "question_en": "Which company had the highest average closing price?",
+    "question_ny": "Ndi kampani iti yomwe inali ndi mtengo wapakati wokwera wotsekera malonda?",
+    "sql_statement": "SELECT company_name, AVG(close_price) AS Avg_close_price FROM mse_daily;",
+    "sql_result": "[('Airtel Malawi', 765.34)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 292,
+    "question_en": "Which company had the lowest average trading volume?",
+    "question_ny": "Ndi kampani iti yomwe inali ndi kuchuluka kochepa kwambiri kogulitsa?",
+    "sql_statement": "SELECT company_name, AVG(volume) AS Avg_volume FROM mse_daily;",
+    "sql_result": "[('Airtel Malawi', 276222.12)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 293,
+    "question_en": "How many trading days are recorded for Illovo Sugar Malawi?",
+    "question_ny": "Kodi pali masiku angati ogulitsa olembedwa a Illovo Sugar Malawi?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Illovo Sugar Malawi';",
+    "sql_result": "[(1055,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 294,
+    "question_en": "What is the total trading volume for Standard Bank Malawi?",
+    "question_ny": "Kodi kuchuluka kwa malonda onse a Standard Bank ndi kotani?",
+    "sql_statement": "SELECT SUM(volume) FROM mse_daily WHERE company_name = 'Standard Bank Malawi';",
+    "sql_result": "[(11041172.0,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 295,
+    "question_en": "Which sector has the highest average closing price?",
+    "question_ny": "Ndi nthambi iti yomwe lili ndi mtengo wapakatikati wotsekera malonda wokwera kwambiri? ",
+    "sql_statement": "SELECT sector, AVG(close_price) AS Avg_close_price FROM mse_daily;",
+    "sql_result": "[('Telecommunications', 765.34)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 296,
+    "question_en": "Which company recorded the highest single-day trading volume?",
+    "question_ny": "Ndi kampani iti yomwe inalemba kuchuluka kwakukulu kwambiri kogulitsa pa tsiku limodzi?",
+    "sql_statement": "SELECT company_name, MAX(volume) AS max_volume FROM mse_daily;",
+    "sql_result": "[('MPICO plc', 404032686.0)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 297,
+    "question_en": "What is the average closing price for companies in the Banking sector?",
+    "question_ny": "Kodi mtengo wapakatikati wotsekera  malonda wa zosungitsa ndi kubwereketsa ndalama ndi uti?",
+    "sql_statement": "SELECT AVG(close_price) FROM mse_daily WHERE sector = 'Banking';",
+    "sql_result": "[(1281.3135374407584,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 298,
+    "question_en": "Which company showed the largest difference between its maximum and minimum closing prices?",
+    "question_ny": "Ndi kampani iti yomwe inasonyeza kusiyana kwakukulu pakati pa mtengo wake wokwera ndi wotsika wotseka?",
+    "sql_statement": "SELECT company_name, (MAX(close_price) - MIN(close_price)) FROM mse_daily GROUP BY company_name ORDER BY (MAX(close_price) - MIN(close_price)) DESC LIMIT 1;",
+    "sql_result": "[('Standard Bank Malawi', 11003.61)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 299,
+    "question_en": "How many distinct companies are recorded in the Malawi Stock Exchange table?",
+    "question_ny": "Kodi ndi makampani akuluakulu angati osiyanasiyana olembedwa mu kaundula wa Malawi Stock Exchange? ",
+    "sql_statement": "SELECT COUNT(DISTINCT company_name) FROM mse_daily;",
+    "sql_result": "[(16,)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 300,
+    "question_en": "Which sector has the largest number of listed companies?",
+    "question_ny": "Ndi ganthambi iti yomwe ili ndi makampani ambiri olembetsedwa?",
+    "sql_statement": "SELECT sector, COUNT(DISTINCT company_name) FROM mse_daily GROUP BY sector ORDER BY COUNT(DISTINCT company_name) DESC LIMIT 1;",
+    "sql_result": "[('Banking', 5)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 301,
+    "question_en": "How many trading days recorded a closing price above 500 for Press Corporation Limited?",
+    "question_ny": "Ndi masiku angati amalonda omwe Press Corporation Limited inali ndi mtengo wotsekera woposa 500?",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE company_name = 'Press Corporation Limited' AND close_price > 500;",
+    "sql_result": "[(1055,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 302,
+    "question_en": "What is the average trading volume for companies in the Telecommunications sector?",
+    "question_ny": "Kodi kuchuluka kwapakatikati kogulitsa kwa makampani a lamya ndi kotani?",
+    "sql_statement": "SELECT AVG(volume) FROM mse_daily WHERE sector = 'Telecommunications';",
+    "sql_result": "[(340575.4199052133,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 303,
+    "question_en": "Which company has the most trading days recorded?",
+    "question_ny": "Ndi kampani iti yomwe ili ndi masiku ambiri ogulitsa olembedwa?",
+    "sql_statement": "SELECT company_name, COUNT(*) FROM mse_daily GROUP BY company_name ORDER BY COUNT(*) DESC LIMIT 1;",
+    "sql_result": "[('Airtel Malawi', 1055)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 304,
+    "question_en": "Which sector recorded the lowest average trading volume?",
+    "question_ny": "Ndi nthambi iti yomwe inachita malonda ochepa kwambiri?",
+    "sql_statement": "SELECT sector, AVG(volume) AS Avg_volume FROM mse_daily;",
+    "sql_result": "[('Telecommunications', 276222.12)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 305,
+    "question_en": "Which company has the most stable closing prices over time?",
+    "question_ny": "Ndi kampani iti yomwe ili ndi mtengo wokhazikika kwambiri wotseka kwa nthawi yayitali?",
+    "sql_statement": "SELECT company_name, (MAX(close_price) - MIN(close_price)) FROM mse_daily GROUP BY company_name ORDER BY (MAX(close_price) - MIN(close_price)) ASC LIMIT 1;",
+    "sql_result": "[('Blantyre Hotels Limited', 5.06)]",
+    "difficulty_level": "medium",
+    "table": "mse_daily"
+  },
+  {
+    "id": 306,
+    "question_en": "How many trading days recorded zero trading volume?",
+    "question_ny": "Ndi masiku angati omwe sikunachitike maloda aliwonse? ",
+    "sql_statement": "SELECT COUNT(*) FROM mse_daily WHERE volume = 0;",
+    "sql_result": "[(8600,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 307,
+    "question_en": "Which sectors have at least one company with a closing price above 1000?",
+    "question_ny": "Ndi nthambi ziti zomwe zili ndi kampani imodzi kapena kuposa yomwe mtengo wotsekera malonda unaposa 1000?",
+    "sql_statement": "SELECT DISTINCT sector FROM mse_daily WHERE close_price > 1000;",
+    "sql_result": "[('Agriculture',), ('Banking',), ('Financial Services',), ('Telecommunications',)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 308,
+    "question_en": "What is the previous close of SUNBIRD?",
+    "question_ny": "Mtengo wotseketa wa Sunbird wam'mbiyomu ndi uti? ",
+    "sql_statement": "SELECT previous_close_price, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'SUNBIRD';",
+    "sql_result": "[(460.02, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 309,
+    "question_en": "What is the shares outstanding for OMU?",
+    "question_ny": "Ma sheya apamwamba a MOU ndi angati?",
+    "sql_statement": "SELECT shares_outstanding, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'OMU';",
+    "sql_result": "[(16949798.0, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 310,
+    "question_en": "What is the latest PBV ratio for MPICO?",
+    "question_ny": "Kodi PBV ya MPICO yaposachedwa ndi iti?",
+    "sql_statement": "SELECT pbv_ratio, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'MPICO';",
+    "sql_result": "[(0.69, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 311,
+    "question_en": "What are the stocks in Real Estate sector?",
+    "question_ny": "Kodi ma sheya mu nthambi ya malo ndi zinthu ndi angati?",
+    "sql_statement": "SELECT DISTINCT ticker FROM mse_daily WHERE sector = 'Real Estate';",
+    "sql_result": "[('ICON',), ('MPICO',)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 312,
+    "question_en": "What is the most recent market capitalization (MWK mn) for NBM?",
+    "question_ny": "Kodi NBM yapeza ndalama zingati za Malawi pa msika posachedwapa? ",
+    "sql_statement": "SELECT market_cap_mwk_mn, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'NBM';",
+    "sql_result": "[(4401447.98, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 313,
+    "question_en": "What are the shares outstanding for AIRTEL?",
+    "question_ny": "Kodi ma share okwera mtengo a AIRTEL ndi angati?",
+    "sql_statement": "SELECT shares_outstanding, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'AIRTEL';",
+    "sql_result": "[(11000000000.0, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 314,
+    "question_en": "What is the market cap of FMBCH?",
+    "question_ny": "Kodi FMBCH ili ndi ndalama zingati mma sheya?",
+    "sql_statement": "SELECT market_cap_mwk_mn, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'FMBCH';",
+    "sql_result": "[(4322611.38, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 315,
+    "question_en": "What is the dividend yield of NICO?",
+    "question_ny": "Kodi phindu ma sheya iliyonse ya NICO ndi chani? ",
+    "sql_statement": "SELECT dividend_yield_pct, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'NICO';",
+    "sql_result": "[(1.15, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 316,
+    "question_en": "What is the lowest price of TNM?",
+    "question_ny": "Kodi mtengo wotsika kwambiri wa NICO ndi chani? ",
+    "sql_statement": "SELECT MIN(low_price) FROM mse_daily WHERE ticker = 'TNM' AND low_price > 0;",
+    "sql_result": "[(11.9,)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 317,
+    "question_en": "What are the shares outstanding for ICON?",
+    "question_ny": "Kodi ma share okwera mtengo a ICON ndi angati?",
+    "sql_statement": "SELECT shares_outstanding, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'ICON';",
+    "sql_result": "[(6680000000.0, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 318,
+    "question_en": "On which date did NITL record its highest traded bid price?",
+    "question_ny": "Tsiku liti lomwe NITL inagulitsa pa mtengo wokwera kwambiri? ",
+    "sql_statement": "SELECT trade_date, MAX(bid_price) AS max_bid_price FROM mse_daily WHERE ticker = 'NITL' AND bid_price > 0;",
+    "sql_result": "[('2025-09-10', 1922.0)]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 319,
+    "question_en": "What is the latest P/E ratio for NICO?",
+    "question_ny": "Kodi mulingo wa P/E ya NICO waposachedwa ndi chani? ",
+    "sql_statement": "SELECT pe_ratio, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'NICO';",
+    "sql_result": "[(25.2, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 320,
+    "question_en": "PBV ratio of TNM?",
+    "question_ny": "Mulingo wa PBV ya TNM?",
+    "sql_statement": "SELECT pbv_ratio, MAX(trade_date) AS max_trade_date FROM mse_daily WHERE ticker = 'TNM';",
+    "sql_result": "[(7.9, '2025-09-10')]",
+    "difficulty_level": "easy",
+    "table": "mse_daily"
+  },
+  {
+    "id": 321,
+    "question_en": "List all recorded food insecurity percentages for Phalombe.",
+    "question_ny": "Lembani pa zinthu handede zilizonse ndandanda onse omwe unalembedwa wa kusowa kwa chakudya m'boma la Phalombe.",
+    "sql_statement": "SELECT percentage_population FROM food_insecurity WHERE district = 'Phalombe';",
+    "sql_result": "[(25,), (35,), (40,), (0,), (0,), (30,), (35,), (35,), (0,), (0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 322,
+    "question_en": "List all recorded food insecurity percentages for Nkhata Bay.",
+    "question_ny": "Lembani pa zinthu handede zilizonse ndandanda onse omwe unalembedwa wa kusowa kwa chakudya m'boma la Nkhata Bay.",
+    "sql_statement": "SELECT percentage_population FROM food_insecurity WHERE district = 'Nkhata Bay';",
+    "sql_result": "[(55,), (30,), (15,), (0,), (0,), (65,), (25,), (10,), (0,), (0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 323,
+    "question_en": "Which districts have at least one recorded percentage_population above 80?",
+    "question_ny": "Ndi maboma ati amene ali ndi chiwerengero cha anthu choposa zinthu 80 pa 100?",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE percentage_population > 50;",
+    "sql_result": "[('Chitipa',), ('Dedza',), ('Likoma',), ('Mzimba',), ('Nkhata Bay',), ('Rumphi',), ('Nkhotakota',), ('Dowa',), ('Karonga',), ('Ntcheu',), ('Ntchisi',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 324,
+    "question_en": "List all recorded food insecurity percentages for Dedza.",
+    "question_ny": "Lembani pa zinthu handede zilizonse ndandanda onse omwe unalembedwa wa kusowa kwa chakudya m'boma la Dedza",
+    "sql_statement": "SELECT percentage_population FROM food_insecurity WHERE district = 'Dedza';",
+    "sql_result": "[(60,), (25,), (15,), (0,), (0,), (75,), (15,), (10,), (0,), (0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 325,
+    "question_en": "List all unique recorded insecurity level values for Zomba.",
+    "question_ny": "Tchulani milingo yonse yosiyanasiyana ya kusowa kwa chakudya ku Zomba",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Zomba';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 326,
+    "question_en": "Which districts are recorded with insecurity level of 3?",
+    "question_ny": "Ndi maboma ati omwe analembedwa ndi mlingo wa kusowa kwa chakudya mu gawo lachitatu?",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE insecurity_level = 3;",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikhwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Mzuzu',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 327,
+    "question_en": "List distinct time periods recorded for Mangochi.",
+    "question_ny": "Tchulani nthawi zodziwika bwino zomwe zinalembedwa ku Mangochi",
+    "sql_statement": "SELECT DISTINCT time_period FROM food_insecurity WHERE district = 'Mangochi';",
+    "sql_result": "[('October 2024-March 2025',), ('May-Sept 2024',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 328,
+    "question_en": "List distinct insecurity levels recorded for Lilongwe city.",
+    "question_ny": "Tchulani nthawi zodziwika bwino zomwe zinalembedwa za mzinda wa Lilongwe",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Lilongwe';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 329,
+    "question_en": "Highest food insecurity district?",
+    "question_ny": "Boma lomwe lili pa chipsezo chachikulu chakusowa kwa chakudya? ",
+    "sql_statement": "SELECT district, MAX(insecurity_level) AS max_insecurity_level FROM food_insecurity;",
+    "sql_result": "[('Balaka', 5)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 330,
+    "question_en": "How many distinct time periods are recorded for Nkhotakota?",
+    "question_ny": "Ndi nthawi ziti zodziwika bwino zomwe zinalembedwa ku Nkhotakota?",
+    "sql_statement": "SELECT COUNT(DISTINCT time_period) FROM food_insecurity WHERE district = 'Nkhotakota';",
+    "sql_result": "[(2,)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 331,
+    "question_en": "Mention the district with the lowest food insecurity.",
+    "question_ny": "Tchulani boma lomwe lili pa chipsezo cha kusowa kwa chakudya chochepetsetsa",
+    "sql_statement": "SELECT district, MAX(insecurity_level) AS max_insecurity_level FROM food_insecurity;",
+    "sql_result": "[('Balaka', 5)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 332,
+    "question_en": "What is the unique analyzed population in Mulanje?",
+    "question_ny": "Chiwerengero chapaderadera cha anthu omwe adawelengeledwa ku Mulanje ndi chiti?",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Mulanje';",
+    "sql_result": "[(781841,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 333,
+    "question_en": "What are the different insecurity descriptions for Mulanje?",
+    "question_ny": "Kodi pali kufotokozera kwanji pa milingo ya kusowa kwa chakudya ku Mulanje?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Mulanje';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 334,
+    "question_en": "What is the unique Analyzed population in Rumphi?",
+    "question_ny": "Chiwerengero chapaderadera cha anthu omwe adawelengeledwa ku Rumphi ndi chiti?",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Rumphi';",
+    "sql_result": "[(259391.0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 335,
+    "question_en": "How many districts are considered critical?",
+    "question_ny": "Ndi maboma angati omwe akuganiziridwa kuti ali mu gawo lamavuto lalikulu?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE insecurity_level >= 3;",
+    "sql_result": "[(174,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 336,
+    "question_en": "Mention the unique insecurity description for Dowa?",
+    "question_ny": "Fotokozani mwapaderadera vuto la kusowa kwa chakudya ku Dowa?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Dowa';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 337,
+    "question_en": "Mention the unique insecurity description for Lilongwe city?",
+    "question_ny": "Fotokozani vuto la kusowa kwa chakudya mwachindunji mu mzinda wa Lilongwe?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Lilongwe';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 338,
+    "question_en": "Food insecurity level in Rumphi?",
+    "question_ny": "Mlingo wa vuto la kusowa kwa chakudya ku Rumphi?",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Rumphi';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 339,
+    "question_en": "What is the total analyzed population?",
+    "question_ny": "Chiwelengelo chonse cha anthu omwe adawelengeledwa ndi chiti?",
+    "sql_statement": "SELECT SUM(analyzed_population) FROM food_insecurity;",
+    "sql_result": "[(184307350,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 340,
+    "question_en": "Mention the unique insecurity description for Neno?",
+    "question_ny": "Fotokozani vuto la kusowa kwa chakudya mwachindunji ku Neno?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Neno';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 341,
+    "question_en": "What short description of food insecurity is recorded as 'stressed' in Neno?",
+    "question_ny": "Kodi ndi kufotokozera kwa chidule kotani kwa vuto la kusowa kwa chakudya komwe kunalembedwa kuti \"wokhuzika kwambiri? Ku Neno?",
+    "sql_statement": "SELECT DISTINCT time_period FROM food_insecurity WHERE district = 'Neno' AND insecurity_desc_short = 'stressed';",
+    "sql_result": "[('October 2024-March 2025',), ('May-Sept 2024',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 342,
+    "question_en": "What is the unique food insecurity percentages in Lilongwe city?",
+    "question_ny": "Kodi mlingo wakusowa kwa chakudya pa zinthu 100 zilizonse ndiwotani mu mzinda wa Lilongwe?",
+    "sql_statement": "SELECT DISTINCT percentage_population FROM food_insecurity WHERE district = 'Lilongwe';",
+    "sql_result": "[(35,), (40,), (25,), (0,), (45,), (15,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 343,
+    "question_en": "Mention the unique insecurity descriptions for Mzuzu city?",
+    "question_ny": "Tchulani vuto la kusowa kwa chakudya mwachindunji mu mzinda wa Mzuzu?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Mzuzu';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 344,
+    "question_en": "List distinct time periods recorded for Machinga.",
+    "question_ny": "Tchulani nthawi zodziwika bwino zomwe zinalembedwa ku Machinga",
+    "sql_statement": "SELECT DISTINCT time_period FROM food_insecurity WHERE district = 'Machinga';",
+    "sql_result": "[('October 2024-March 2025',), ('May-Sept 2024',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 345,
+    "question_en": "Average insecurity percentage?",
+    "question_ny": "Mlingo wapakatikati wa vuto lakusowa kwa chakudya pa zinthu 100 zilizonse?",
+    "sql_statement": "SELECT AVG(percentage_population) FROM food_insecurity;",
+    "sql_result": "[(20.0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 346,
+    "question_en": "Mention the distinct districts with insecurity level  of 2.",
+    "question_ny": "Tchulani maboma omwe ali vito lakusowa kwa chakudya mu gawo lachiwiri",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE insecurity_level = 2;",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikhwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Mzuzu',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 347,
+    "question_en": "Mention the distinct districts with insecurity level  of 1.",
+    "question_ny": "Tchulani maboma omwe ali vito lakusowa kwa chakudya mu gawo loyamba",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE insecurity_level = 1;",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikhwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Mzuzu',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 348,
+    "question_en": "What are the different food insecurity levels in Mchinji?",
+    "question_ny": "Kodi milingo ya mavuto akusowa kwa chakudya osiyanasiyana ku Mchinji ndi iti?",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Mchinji';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 349,
+    "question_en": "Mention the distinct insecurity description for Chiradzulu?",
+    "question_ny": "Tchulani kafotokozedwe ka vuto lakusowa kwa chakudya komwe kalembedwa m'boma la Chiradzulu.",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Chiradzulu';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 350,
+    "question_en": "Mention the distinct food insecurity percentages in Balaka?",
+    "question_ny": "Tchulani mlingo wa vuto la chakudya m'boma la Balaka pa zinthu 100 zilizonse",
+    "sql_statement": "SELECT DISTINCT percentage_population FROM food_insecurity WHERE district = 'Balaka';",
+    "sql_result": "[(20,), (35,), (40,), (5,), (0,), (30,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 351,
+    "question_en": "What are the different insecurity description for Rumphi?",
+    "question_ny": "Kodi vuto lakusowa kwa chakudya ku Rumphi ndi lotani?",
+    "sql_statement": "SELECT DISTINCT insecurity_desc_short FROM food_insecurity WHERE district = 'Rumphi';",
+    "sql_result": "[('None or minimal',), ('stressed',), ('Crisis',), ('Emergency',), ('Catastrophe or famine',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 352,
+    "question_en": "Mention the distinct food insecurity percentages in Mangochi.",
+    "question_ny": "Tchulani mlingo wa vuto la chakudya ku Mangochi pa zinthu 100 zilizonse",
+    "sql_statement": "SELECT DISTINCT percentage_population FROM food_insecurity WHERE district = 'Mangochi';",
+    "sql_result": "[(35,), (25,), (5,), (0,), (40,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 353,
+    "question_en": "Mention the unique analyzed population in Phalombe.",
+    "question_ny": "Tchulani chiwerengero cha anthu omwe adawelengeledwa m'boma la Phalombe",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Phalombe';",
+    "sql_result": "[(502825.0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 354,
+    "question_en": "Mention the distinct food insecurity levels in Machinga.",
+    "question_ny": "Tchulani milingo yosiyanasiyana yakusowa kwa chakudya ku Machinga.",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Machinga';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 355,
+    "question_en": "What are the unique districts with insecurity level 4?",
+    "question_ny": "Maboma ati omwe ali mu gawo lachinayo lakusowa kwa chakudya?",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE insecurity_level = 4;",
+    "sql_result": "[('Balaka',), ('Blantyre',), ('Chikhwawa',), ('Chiradzulu',), ('Chitipa',), ('Dedza',), ('Dowa',), ('Karonga',), ('Kasungu',), ('Likoma',), ('Lilongwe',), ('Machinga',), ('Mangochi',), ('Mchinji',), ('Mulanje',), ('Mwanza',), ('Mzimba',), ('Mzuzu',), ('Neno',), ('Nkhata Bay',), ('Nkhotakota',), ('Nsanje',), ('Ntcheu',), ('Ntchisi',), ('Phalombe',), ('Rumphi',), ('Salima',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 356,
+    "question_en": "Which districts had analyzed population greater than 1000000?",
+    "question_ny": "Ndi maboma ati amene anali ndi chowengero choposa 1000000? ",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE analyzed_population > 1000000;",
+    "sql_result": "[('Lilongwe',), ('Mangochi',), ('Mzimba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 357,
+    "question_en": "Among the stressed population, which district had the most analyzed population?",
+    "question_ny": "Muchiwerengero cha anthu ovutikitsitsa ndi kusowa kwa chakudya, ndi boma liti lomwe linali anthu ofufuzidwa ochuluka? ",
+    "sql_statement": "SELECT district, MAX(analyzed_population) AS max_analyzed_population FROM food_insecurity WHERE insecurity_desc_short = 'stressed';",
+    "sql_result": "[('Lilongwe', 1869640)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 358,
+    "question_en": "Among the population with emergency cases of food insecurity, which district had the least analyzed population?",
+    "question_ny": "Muchiwerengero cha anthu omwe anali ndi vuto ladzidzi la chakudya, ndi boma liti linali ndi chiwerengero chochepa kwambiri? ",
+    "sql_statement": "SELECT district, MAX(analyzed_population) AS max_analyzed_population FROM food_insecurity WHERE insecurity_desc_short = 'Emergency';",
+    "sql_result": "[('Lilongwe', 1869640)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 359,
+    "question_en": "Among the population with catastrophe or famine cases of food insecurity, which district had the highest analyzed population?",
+    "question_ny": "Muchiwerengero cha anthu omwe anali ndi vuto ladzaoneni la njala, ndi boma liti linali ndi chiwerengero chachikulu kwambiri? ",
+    "sql_statement": "SELECT district, MAX(analyzed_population) AS max_analyzed_population FROM food_insecurity WHERE insecurity_desc_short = 'Catastrophe or famine';",
+    "sql_result": "[('Lilongwe', 1869640)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 360,
+    "question_en": "Among the population with minimal food insecurity, which district had the lowest analyzed population?",
+    "question_ny": "Muchiwerengero cha anthu omwe anali ndi vuto lochepa la njala, ndi boma liti linali ndi chiwerengero chochepa kwambiri? ",
+    "sql_statement": "SELECT district, MAX(analyzed_population) AS max_analyzed_population FROM food_insecurity WHERE insecurity_desc_short = 'None or minimal';",
+    "sql_result": "[('Lilongwe', 1869640)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 361,
+    "question_en": "Which district has the largest total analyzed_population across all May-September periods?",
+    "question_ny": "Ndi boma liti lomwe linali ndi anthu owerengedwa ambiri kuyambira May mpaka September?",
+    "sql_statement": "SELECT district, SUM(analyzed_population) AS Sum_analyzed_population FROM food_insecurity WHERE time_period LIKE '%May%' OR time_period LIKE '%May-%' OR time_period LIKE '%May–%';",
+    "sql_result": "[('Balaka', 92153675)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 362,
+    "question_en": "Which district has the smallest total analyzed_population across all October–March periods?",
+    "question_ny": "Ndi boma liti lomwe linali ndi anthu owerengedwa ochepa kuyambira October mpaka March?",
+    "sql_statement": "SELECT district, SUM(analyzed_population) AS Sum_analyzed_population FROM food_insecurity WHERE time_period LIKE '%October%' OR time_period LIKE '%Oct%';",
+    "sql_result": "[('Balaka', 92153675)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 363,
+    "question_en": "What is the highest food insecurity level recorded in Karonga?",
+    "question_ny": "Kodi mlingo wapamwamba kwambiri wa kusowa chakudya ku Karonga ndi uti?",
+    "sql_statement": "SELECT MAX(insecurity_level) FROM food_insecurity WHERE district = 'Karonga';",
+    "sql_result": "[(5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 364,
+    "question_en": "What is the highest food insecurity level recorded in Mzuzu?",
+    "question_ny": "Kodi mlingo wapamwamba kwambiri wa kusowa chakudya ku Mzuzu ndi uti?",
+    "sql_statement": "SELECT MAX(insecurity_level) FROM food_insecurity WHERE district LIKE 'Mzuzu%';",
+    "sql_result": "[(5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 365,
+    "question_en": "What is the highest food insecurity level recorded in Mchinji?",
+    "question_ny": "Kodi mlingo wapamwamba kwambiri wa kusowa chakudya ku Mchinji ndi uti?",
+    "sql_statement": "SELECT MAX(insecurity_level) FROM food_insecurity WHERE district = 'Mchinji';",
+    "sql_result": "[(5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 366,
+    "question_en": "What is the unique analyzed population for Blantyre city?",
+    "question_ny": "Kodi chiwerengero cha anthu omwe adafufuzidwa mu mzinda wa Blantyre ndi chiti? ",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Blantyre';",
+    "sql_result": "[(885237,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 367,
+    "question_en": "What is the unique analyzed population for Nkhata Bay?",
+    "question_ny": "Kodi chiwerengero cha anthu omwe adafufuzidwa ku Nkhata Bay ndi chiti? ",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Nkhata Bay';",
+    "sql_result": "[(314810,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 368,
+    "question_en": "What is the unique food insecurity percentage in Mwanza?",
+    "question_ny": "Kodi kusowa kwa chakudya ku Mwanza ndi kotani pa zinthu 100 zilizonse?",
+    "sql_statement": "SELECT DISTINCT percentage_population FROM food_insecurity WHERE district = 'Mwanza';",
+    "sql_result": "[(30,), (35,), (5,), (0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 369,
+    "question_en": "Among the cases of food insecurity tagged as crisis, which district has the highest analyzed population?",
+    "question_ny": "Mwa mavuto onse akusowa kwa chakudya omwe afotokozedwa ngati ovutitsitsa, ndi maboma ati ali ndi chiwerengero cha anthu chachikulu?",
+    "sql_statement": "SELECT district, MAX(analyzed_population) AS Max_analyzed_population FROM food_insecurity WHERE insecurity_desc_short = 'Crisis';",
+    "sql_result": "[('Lilongwe', 1869640)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 370,
+    "question_en": "List distinct insecurity levels recorded in Zomba.",
+    "question_ny": "Onetsani milingo yosiyanasiyana ya kusowa kwa chakudya yomwe alembedwa ku Zomba.",
+    "sql_statement": "SELECT DISTINCT insecurity_level FROM food_insecurity WHERE district = 'Zomba';",
+    "sql_result": "[(1,), (2,), (3,), (4,), (5,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 371,
+    "question_en": "What is the maximum food insecurity percentage recorded in Zomba?",
+    "question_ny": "Kodi pa zinthu 100 zilizonse, mulingo waukulu wakusowa kwa chakudya ku Zomba wokwera kwambiri ndi wotani? ",
+    "sql_statement": "SELECT MAX(percentage_population) FROM food_insecurity WHERE district = 'Zomba';",
+    "sql_result": "[(40,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 372,
+    "question_en": "List distinct time periods recorded for Mwanza.",
+    "question_ny": "Tchulani nthawi zodziwika bwino zomwe zinalembedwa ku Mwanza",
+    "sql_statement": "SELECT DISTINCT time_period FROM food_insecurity WHERE district = 'Mwanza';",
+    "sql_result": "[('October 2024-March 2025',), ('May-Sept 2024',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 373,
+    "question_en": "What is the most common (modal) insecurity level in Chitipa?",
+    "question_ny": "Kodi mlingo wa kusowa chakudya womwe umapezeka kawirikawiri ku Chitipa ndi uti?",
+    "sql_statement": "SELECT insecurity_level, COUNT(*) AS cnt FROM food_insecurity WHERE district = 'Chitipa' GROUP BY insecurity_level ORDER BY cnt DESC LIMIT 1;",
+    "sql_result": "[(5, 2)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 374,
+    "question_en": "How many distinct time periods are recorded for Nsanje?",
+    "question_ny": "Ndi nthawi zingati zodziwika bwino zomwe zinalembedwa ku Nsanje?",
+    "sql_statement": "SELECT COUNT(DISTINCT time_period) FROM food_insecurity WHERE district = 'Nsanje';",
+    "sql_result": "[(2,)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 375,
+    "question_en": "Which time period in Mulanje has the highest percentage_population and what is the percentage value?",
+    "question_ny": "Ndi nthawi iti ku Mulanje yomwe ili ndi chiwerengero chachikulu pa zinthu 100 zilizonse_ndipo kuchuluka pa zinthu 100 zilizonse ndi kotani?",
+    "sql_statement": "SELECT time_period, MAX(percentage_population) AS max_percentage_population FROM food_insecurity WHERE district = 'Mulanje';",
+    "sql_result": "[('May-Sept 2024', 40)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 376,
+    "question_en": "Show the unique analyzed population value recorded for Karonga.",
+    "question_ny": "Onetsani chiwerengero cha anthu chomwe chinalembedwa ku Karonga",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Karonga';",
+    "sql_result": "[(414100,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 377,
+    "question_en": "What is the difference between the highest and lowest analyzed population",
+    "question_ny": "Kodi kusiyana kwa chiwerengero cha anthu chokwera ndi chotsika kwambiri omwe anafufuzidwa ndi kotani? ",
+    "sql_statement": "SELECT MAX(analyzed_population) - MIN(analyzed_population) FROM food_insecurity;",
+    "sql_result": "[(1853338,)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 378,
+    "question_en": "How many times was insecurity level equal to 5 in the entire database?",
+    "question_ny": "Kodi mlingo wa gawo la chisanu la kusowa chakudya unalembedwa kangati nkaundula yense?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE insecurity_level = 5;",
+    "sql_result": "[(58,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 379,
+    "question_en": "Which time period in Chikhwawa recorded the highest insecurity level?",
+    "question_ny": "Ndi nthawi iti ku Chikhwawa yomwe inaonetsa mlingo wapamwamba kwambiri wa kusowa chakudya?",
+    "sql_statement": "SELECT time_period, MAX(insecurity_level) AS max_insecurity_level FROM food_insecurity WHERE district = 'Chikhwawa';",
+    "sql_result": "[('October 2024-March 2025', 5)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 380,
+    "question_en": "In which time period did Karonga record its highest percentage_population?",
+    "question_ny": "Ndi nthawi iti yomwe Karonga inali ndi chiwerengero chokwera kwambiri pa zinthu 100 zilizonse?",
+    "sql_statement": "SELECT time_period, MAX(percentage_population) AS max_percentage_population FROM food_insecurity WHERE district = 'Karonga';",
+    "sql_result": "[('May-Sept 2024', 60)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 381,
+    "question_en": "Mention the unique analyzed population in Balaka?",
+    "question_ny": "Tchulani chiwerengero cha anthu ofufuzidwa ku Balaka?",
+    "sql_statement": "SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Balaka';",
+    "sql_result": "[(518003.0,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 382,
+    "question_en": "List the distinct time periods recorded for Zomba.",
+    "question_ny": "Tchulani nthawi zodziwika bwino zomwe zinalembedwa ku Zomba.",
+    "sql_statement": "SELECT DISTINCT time_period FROM food_insecurity WHERE district = 'Zomba';",
+    "sql_result": "[('October 2024-March 2025',), ('May-Sept 2024',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 383,
+    "question_en": "How many records are there for Mulanje in the food_insecurity table?",
+    "question_ny": "Kodi pali a kaundula angati ku Mulanje mu ndandanda wa vuto lakusowa kwa chakudya?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Mulanje';",
+    "sql_result": "[(10,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 384,
+    "question_en": "What is the maximum analyzed population recorded for Chiradzulu?",
+    "question_ny": "Kodi chiwerengero chokwera kwambiri cha anthu owunikidwa ku Chiradzulu ndi chotani? ",
+    "sql_statement": "SELECT MAX(analyzed_population) FROM food_insecurity WHERE district = 'Chiradzulu';",
+    "sql_result": "[(396198,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 385,
+    "question_en": "List the distinct food insecurity percentages recorded for Mzuzu (city or variants).",
+    "question_ny": "Onetsani mwa zinthu 100 zilizonse vuto lakusowa kwa chakudya ku Mzuzu (mu mzinda kapena madera ena)",
+    "sql_statement": "SELECT DISTINCT percentage_population FROM food_insecurity WHERE district LIKE 'Mzuzu%';",
+    "sql_result": "[(45,), (35,), (20,), (0,), (50,), (15,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 386,
+    "question_en": "Which districts have non-zero percentage population with insecurity level 4?",
+    "question_ny": "Ndi maboma ati ali ndi anthu owunikiridwa omwe ali mu gawo lachinayi lakusowa kwa chakudya? ",
+    "sql_statement": "SELECT DISTINCT district FROM food_insecurity WHERE insecurity_level = 4 AND percentage_population > 0;",
+    "sql_result": "[('Balaka',), ('Chikhwawa',), ('Machinga',), ('Mangochi',), ('Mwanza',), ('Neno',), ('Nsanje',), ('Thyolo',), ('Zomba',)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 387,
+    "question_en": "How many distinct time periods are recorded for Rumphi?",
+    "question_ny": "Ndi nthawi zingati zodziwika bwino zomwe zinalembedwa ku Rumphi?",
+    "sql_statement": "SELECT COUNT(DISTINCT time_period) FROM food_insecurity WHERE district = 'Rumphi';",
+    "sql_result": "[(2,)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 388,
+    "question_en": "How many non-zero percentage populations are recorded for Chikhwawa?",
+    "question_ny": "Kodi Chikhwawa inalemba magawo anthu kuyambira mmodzi owunikiridwa  angati?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Chikhwawa' AND percentage_population > 0;",
+    "sql_result": "[(8,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 389,
+    "question_en": "How many non-zero percentage populations are recorded for Likoma?",
+    "question_ny": "Kodi Likoma inalemba magawo anthu kuyambira mmodzi owunikiridwa  angati?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Likoma' AND percentage_population > 0;",
+    "sql_result": "[(6,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 390,
+    "question_en": "How many non-zero percentage populations are recorded for Mangochi?",
+    "question_ny": "Kodi Mangochi inalemba magawo anthu kuyambira mmodzi owunikiridwa  angati?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Mangochi' AND percentage_population > 0;",
+    "sql_result": "[(7,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 391,
+    "question_en": "How many non-zero percentage populations are recorded for Kasungu?",
+    "question_ny": "Kodi Kasungu inalemba magawo anthu kuyambira mmodzi owunikiridwa  angati?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Kasungu' AND percentage_population > 0;",
+    "sql_result": "[(6,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 392,
+    "question_en": "How many emergency cases are recorded for districts with analyzed populations greater than 1000000?",
+    "question_ny": "Ndi mavuto adzidzi angati omwe alembedwa m'maboma omwe ali ndi chiwerengero cha anthu ofifizidwa choposa 1000000? ",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE analyzed_population > 1000000 AND insecurity_desc_short = 'Emergency';",
+    "sql_result": "[(6,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 393,
+    "question_en": "How many emergency cases are recorded for districts with analyzed populations less than 500000?",
+    "question_ny": "Ndi mavuto adzidzi angati omwe alembedwa m'maboma omwe ali ndi chiwerengero cha anthu ofifizidwa choposa 500000? ",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE analyzed_population < 500000 AND insecurity_desc_short = 'Emergency';",
+    "sql_result": "[(24,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 394,
+    "question_en": "What is the difference between the analyzed populations for Thyolo and Neno",
+    "question_ny": "Kodi pali kusiyana kotani pakati pa chiwerengero chounikidwa ku Thyolo ndi Neno? ",
+    "sql_statement": "SELECT (SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Thyolo') - (SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Neno');",
+    "sql_result": "[(637757,)]",
+    "difficulty_level": "hard",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 395,
+    "question_en": "What is the difference between the analyzed populations for Blantyre and Salima",
+    "question_ny": "Kodi pali kusiyana kotani pakati pa chiwerengero chounikidwa ku Blantyre ndi Salima? ",
+    "sql_statement": "SELECT (SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Blantyre') - (SELECT DISTINCT analyzed_population FROM food_insecurity WHERE district = 'Salima');",
+    "sql_result": "[(318936,)]",
+    "difficulty_level": "hard",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 396,
+    "question_en": "What is the district with the second highest analyzed population?",
+    "question_ny": "Kodi ndi boma liti liri pachiwiri ndi chiwerengero anthu owunikidwa chokwera kwambiri?",
+    "sql_statement": "SELECT district FROM food_insecurity GROUP BY district ORDER BY MAX(analyzed_population) DESC LIMIT 1 OFFSET 1;",
+    "sql_result": "[('Mangochi',)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 397,
+    "question_en": "What is the maximum food insecurity percentage recorded in Rumphi?",
+    "question_ny": "Pa zinthu 100 zilizonse, kodi chiwerengero cha vuto lakusowa kwa chakudya chokwera kwambiri ndi chani? ",
+    "sql_statement": "SELECT MAX(percentage_population) FROM food_insecurity WHERE district = 'Rumphi';",
+    "sql_result": "[(75,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 398,
+    "question_en": "What is the district with the second lowest analyzed population?",
+    "question_ny": "Kodi ndi boma liti liri pachiwiri ndi chiwerengero anthu owunikidwa chotsika kwambiri?",
+    "sql_statement": "SELECT district FROM food_insecurity GROUP BY district ORDER BY MIN(analyzed_population) ASC LIMIT 1 OFFSET 1;",
+    "sql_result": "[('Neno',)]",
+    "difficulty_level": "medium",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 399,
+    "question_en": "What district has analyzed population closest to the average analyzed population?",
+    "question_ny": "Kodi ndi boma liti liri ndi chiwerengero anthu owunikidwa chofananirako ndi chiwerengero chapakatikati?",
+    "sql_statement": "SELECT district, ABS(MIN(analyzed_population) - (SELECT AVG(analyzed_population) FROM food_insecurity)) FROM food_insecurity GROUP BY district ORDER BY ABS(MIN(analyzed_population) - (SELECT AVG(analyzed_population) FROM food_insecurity)) ASC LIMIT 1;",
+    "sql_result": "[('Chikhwawa', 5265.41)]",
+    "difficulty_level": "hard",
+    "table": "food_insecurity"
+  },
+  {
+    "id": 400,
+    "question_en": "How many non-zero percentage populations are recorded for Nkhata Bay?",
+    "question_ny": "Kodi Nkhata Bay inalemba magawo anthu kuyambira mmodzi owunikidwa  angati?",
+    "sql_statement": "SELECT COUNT(*) FROM food_insecurity WHERE district = 'Nkhata Bay' AND percentage_population > 0;",
+    "sql_result": "[(6,)]",
+    "difficulty_level": "easy",
+    "table": "food_insecurity"
+  }
+]
