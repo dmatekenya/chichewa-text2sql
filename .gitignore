@@ -59,9 +59,9 @@ target/
 # DotEnv configuration
 .env
 
-# Database
-*.db
+# Database (allow the demo DB)
 *.rdb
+!data/database/chichewa_text2sql.db
 
 # Pycharm
 .idea
@@ -94,8 +94,12 @@ _build/
 # setuptools-scm/
 src/*/_version.py
 
-# Data
-data/
+# Data — ignore everything except the two files the demo needs
+data/*
+!data/all.json
+!data/database/
+data/database/*
+!data/database/chichewa_text2sql.db
 
 # Docs
 docs/
