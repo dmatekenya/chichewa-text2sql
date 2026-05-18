@@ -228,7 +228,7 @@ def answer_question(question: str, language: str = "ny"):
     return plain, sql, f"Baseline retrieval ({mode}, score={score})", df or pd.DataFrame()
 
 
-with gr.Blocks(title="Malawi Crop & Market Intelligence", theme=gr.themes.Soft()) as demo:
+with gr.Blocks(title="Malawi Crop & Market Intelligence") as demo:
     gr.Markdown(
         "# 🌽 Malawi Crop & Market Intelligence\n"
         "Ask about **crop production** and **commodity prices** across Malawi "
@@ -252,7 +252,7 @@ with gr.Blocks(title="Malawi Crop & Market Intelligence", theme=gr.themes.Soft()
 
     answer_output = gr.Markdown(label="Answer / Yankho")
     with gr.Row():
-        sql_output    = gr.Textbox(label="SQL Query", lines=4, show_copy_button=True)
+        sql_output    = gr.Textbox(label="SQL Query", lines=4)
         source_output = gr.Textbox(label="Source", lines=1, interactive=False)
     result_output = gr.Dataframe(label="Results / Zotsatira", wrap=True)
 
@@ -277,4 +277,4 @@ with gr.Blocks(title="Malawi Crop & Market Intelligence", theme=gr.themes.Soft()
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port)
+    demo.launch(server_name="0.0.0.0", server_port=port, theme=gr.themes.Soft())
