@@ -19,7 +19,7 @@ We construct a structured Chichewa Text-to-SQL benchmark consisting of **400 man
 
 ## Dataset
 
-The benchmark contains **3,602 natural language–SQL pairs** (400 curated + augmented splits) across 5 database tables:
+The benchmark contains **400 manually curated natural language–SQL pairs** across 5 database tables, split into train (280) / dev (60) / test (60):
 
 | Table | Description | Examples |
 |---|---|---|
@@ -71,7 +71,7 @@ Each example includes:
 
 | Model | Strategy | Exact Match | Execution Accuracy |
 |---|---|---|---|
-| LLaMA 3.1 8B | Zero-Shot | 81.7% | 78.3% |
+| LLaMA 3.1 8B | Zero-Shot | **81.7%** | **78.3%** |
 | LLaMA 3.1 8B | Retrieved Few-Shot | 71.7% | 76.7% |
 | DeepSeek Coder | Zero-Shot | 63.3% | 65.0% |
 | DeepSeek Coder | Retrieved Few-Shot | 66.7% | 70.0% |
@@ -85,7 +85,7 @@ Each example includes:
 | DeepSeek Coder | Zero-Shot | 20.0% | 18.3% |
 | DeepSeek Coder | Retrieved Few-Shot | 25.0% | 26.7% |
 
-> Fine-tuning with QLoRA yields large gains — LLaMA 3.1 8B jumps from 0% (zero-shot, no fine-tune) to **53.3% execution accuracy** in Chichewa.
+> Fine-tuning with QLoRA yields strong results in both languages. In **English**, LLaMA 3.1 8B achieves **81.7% exact match and 78.3% execution accuracy** (zero-shot). In **Chichewa**, the same model jumps from 0% (zero-shot, no fine-tune) to **53.3% execution accuracy** with retrieved few-shot prompting.
 
 ---
 
@@ -180,11 +180,12 @@ python deploy_market_space.py    # deploys johneze/malawi-crop-market
 If you use this dataset or findings in your work, please cite:
 
 ```bibtex
-@misc{chichewa-text2sql,
-  title   = {Chichewa Text-to-SQL: A Low-Resource Benchmark for Natural Language Interfaces to Databases},
-  author  = {Eze, John},
-  year    = {2025},
-  url     = {https://github.com/dmatekenya/chichewa-text2sql}
+@misc{eze2026chichewa,
+  author    = {Eze, John Emeka and Matekenya, Dunstan and Matthewe, Evance},
+  title     = {Bridging the Language Gap in Text-to-SQL: Adapting LLMs for Chichewa in a Low-Resource Setting},
+  year      = {2026},
+  publisher = {HuggingFace},
+  url       = {https://huggingface.co/datasets/johneze/chichewa-text2sql}
 }
 ```
 

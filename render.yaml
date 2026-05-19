@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: malawi-market-intelligence
+    runtime: python
+    buildCommand: pip install "gradio>=4.0.0" "pandas>=2.0.0"
+    startCommand: python market_app.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
