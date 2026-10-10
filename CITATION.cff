@@ -1,9 +1,13 @@
-cff-version: 1.2.0
+cff-version: 1.0.0
 message: "If you use this dataset or findings, please cite this work."
-title: "Chichewa Text-to-SQL: A Low-Resource Benchmark for Natural Language Interfaces to Databases"
+title: "Bridging the Language Gap in Text-to-SQL: Adapting LLMs for Chichewa in a Low-Resource Setting"
 authors:
   - family-names: Eze
-    given-names: John
+    given-names: John Emeka
+  - family-names: Matekenya
+    given-names: Dunstan
+  - family-names: Matthewe
+    given-names: Evance
 keywords:
   - Text-to-SQL
   - Low-Resource Languages
@@ -12,5 +16,6 @@ keywords:
   - Semantic Parsing
   - Natural Language Processing
 repository-code: https://github.com/dmatekenya/chichewa-text2sql
+url: https://huggingface.co/datasets/johneze/chichewa-text2sql
 license: MIT
-date-released: "2025-01-01"
+date-released: "2026-03-12"
